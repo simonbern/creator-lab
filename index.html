@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Creator Lab — Jay Alvarrez</title>
+<meta name="description" content="The Creator Lab: a 12-week coached program by Jay Alvarrez for adventure, travel and sports creators. Live more adventures, then turn them into a living.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0b; --bg2:#111113; --ink:#f2efe9; --mute:#8c8a86; --line:#232326; --sky:#7cc4e4;
+  --sans:"Inter Tight",system-ui,sans-serif; --serif:"Instrument Serif",Georgia,serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+  --pad:clamp(20px,5vw,72px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+
+/* type system, lifted from the media kit */
+.label{font:500 11px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+.label b{color:var(--sky);font-weight:500}
+h1,h2,h3{font-family:var(--sans);font-weight:800;letter-spacing:-.035em;line-height:.95}
+h1{font-size:clamp(56px,10vw,148px)}
+h2{font-size:clamp(40px,6vw,84px)}
+h3{font-size:22px;letter-spacing:-.02em;line-height:1.15;font-weight:600}
+.it{display:block;font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em;color:#cfcac2}
+h2 .it{font-size:.92em;line-height:1}
+p.lead{font-size:clamp(17px,1.5vw,20px);color:#c9c5be;max-width:46ch}
+.mute{color:var(--mute)}
+
+section{padding:clamp(80px,12vw,160px) var(--pad);border-top:1px solid var(--line);position:relative}
+.wrap{max-width:1280px;margin:0 auto}
+.head{display:flex;justify-content:space-between;gap:24px;margin-bottom:clamp(40px,6vw,80px)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:12px;padding:18px 28px;border-radius:999px;font:600 15px/1 var(--sans);letter-spacing:-.01em;transition:transform .2s,background .2s}
+.btn.solid{background:var(--ink);color:var(--bg)}
+.btn.solid:hover{transform:translateY(-2px);background:#fff}
+.btn.ghost{border:1px solid #3a3a3e}
+.btn.ghost:hover{border-color:var(--ink)}
+.btn .arr{font-family:var(--mono)}
+
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad);background:linear-gradient(180deg,rgba(10,10,11,.6),transparent);transition:background .3s,backdrop-filter .3s}
+nav.solid{background:rgba(10,10,11,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .brand{font:800 15px/1 var(--sans);letter-spacing:-.01em}
+nav .brand span{font:400 italic 17px var(--serif);color:var(--mute);margin-left:6px}
+nav .links{display:flex;gap:32px;align-items:center}
+nav .links a.l{font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#bdb9b2}
+nav .links a.l:hover{color:var(--ink)}
+nav .btn{padding:12px 20px;font-size:14px}
+@media (max-width:860px){nav .links a.l{display:none}}
+
+/* hero */
+.hero{min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border:0;padding:0}
+.hero .copy{padding:140px var(--pad) 56px;display:flex;flex-direction:column;justify-content:space-between;gap:56px;position:relative;z-index:2}
+.hero h1{font-size:clamp(48px,6.2vw,108px)}
+.hero h1 .it{font-size:.62em;margin-top:.12em;color:#d8d3cb}
+.hero .media{position:relative;overflow:hidden}
+.hero .media::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,rgba(10,10,11,.35) 22%,transparent 50%);z-index:1}
+.hero .media img{transform:scale(1.06);animation:drift 18s ease-out forwards}
+@keyframes drift{to{transform:scale(1)}}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.stats{display:flex;gap:clamp(24px,4vw,56px);flex-wrap:wrap}
+.stat .n{font:600 clamp(28px,3vw,40px)/1 var(--sans);letter-spacing:-.03em}
+.stat .label{margin-top:10px;display:block;font-size:10px}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;grid-template-rows:auto auto}
+  .hero .media{order:-1;height:62svh}
+  .hero .media::before{background:linear-gradient(0deg,var(--bg) 0%,transparent 45%)}
+  .hero .copy{padding-top:0;margin-top:-90px}
+}
+
+/* why */
+.why{background:var(--bg);overflow:hidden}
+.why .grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.why .grid div{padding:32px 32px 0 0}
+.why .grid div+div{padding-left:32px;border-left:1px solid var(--line)}
+.num{font:500 12px/1 var(--mono);color:var(--sky);letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:28px}
+.why .grid p{color:#a9a59f;margin-top:12px;max-width:32ch}
+@media (max-width:760px){.why .grid{grid-template-columns:1fr}.why .grid div+div{border-left:0;padding-left:0;border-top:1px solid var(--line);margin-top:32px}}
+
+.strip{display:grid;grid-template-columns:1.1fr .8fr 1fr;gap:12px;margin-top:clamp(56px,8vw,100px);height:clamp(260px,38vw,520px)}
+.strip figure{overflow:hidden;border-radius:4px}
+.strip figure img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.strip figure:hover img{transform:scale(1.04)}
+@media (max-width:760px){.strip{grid-template-columns:1fr 1fr;height:auto}.strip figure{aspect-ratio:3/4}.strip figure:first-child{grid-column:1/-1;aspect-ratio:16/10}}
+
+/* jay */
+.jay .grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,96px);align-items:start}
+.jay .photo{aspect-ratio:1000/909;overflow:hidden;border-radius:4px;position:sticky;top:100px}
+.jay .bio{color:#c9c5be;font-size:18px;max-width:52ch;margin-top:28px}
+.jay .bio + .bio{margin-top:16px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);margin-top:48px;border-top:1px solid var(--line)}
+.facts div{padding:24px 16px 24px 0}
+.facts .n{font:600 34px/1 var(--sans);letter-spacing:-.03em}
+.facts .n.sky{color:var(--sky)}
+.facts .label{display:block;margin-top:10px;font-size:10px}
+.reels{margin-top:48px}
+.reels .row{display:grid;grid-template-columns:1fr auto;gap:16px;padding:14px 0;border-top:1px solid var(--line);align-items:center;font-size:15px}
+.reels .bar{height:3px;background:#2a2a2e;margin-top:8px;border-radius:2px;overflow:hidden}
+.reels .bar i{display:block;height:100%;background:var(--ink);width:0;transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+.reels .row.top .bar i{background:var(--sky)}
+.reels .v{font:600 15px var(--sans)}
+@media (max-width:860px){.jay .grid{grid-template-columns:1fr}.jay .photo{position:relative;top:0}}
+
+/* program */
+.program{background:var(--bg2)}
+.promise{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:end}
+.promise .q{font:400 italic clamp(36px,4.6vw,64px)/1.02 var(--serif);letter-spacing:-.01em}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:clamp(56px,8vw,96px);border-top:1px solid var(--line)}
+.three > div{padding:32px 32px 0 0}
+.three > div + div{padding-left:32px;border-left:1px solid var(--line)}
+.three p{color:#a9a59f;margin-top:12px}
+@media (max-width:860px){.promise,.three{grid-template-columns:1fr}.three > div + div{border-left:0;padding-left:0;border-top:1px solid var(--line);margin-top:32px}}
+
+/* inside */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:6px;padding:36px 32px;display:flex;flex-direction:column;min-height:420px;transition:border-color .3s}
+.card:hover{border-color:#3a3a3e}
+.card h3{font-size:32px;font-weight:800;letter-spacing:-.03em}
+.card .it{font-size:20px;margin-top:6px;color:var(--mute)}
+.card ul{list-style:none;margin-top:auto;padding-top:40px}
+.card li{padding:13px 0;border-top:1px solid var(--line);font-size:15px;color:#cfcac2;display:flex;gap:12px}
+.card li::before{content:"→";font-family:var(--mono);color:var(--sky);font-size:13px;padding-top:2px}
+.card.feat{background:linear-gradient(160deg,#16222a 0%,var(--bg2) 60%);border-color:#24343d}
+.note{margin-top:28px;display:flex;gap:16px;align-items:baseline;color:var(--mute);font-size:15px}
+.note b{font:600 28px var(--sans);color:var(--ink);letter-spacing:-.03em}
+@media (max-width:960px){.cards{grid-template-columns:1fr}.card{min-height:0}}
+
+/* path */
+.path{position:relative;overflow:hidden;padding-bottom:0}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.steps > div{padding:32px 24px 40px 0;position:relative}
+.steps > div + div{padding-left:24px;border-left:1px solid var(--line)}
+.steps h3{font-size:clamp(20px,2vw,26px)}
+.steps .horizon{color:var(--mute)}
+.steps .horizon .num{color:var(--mute)}
+.disclaim{margin-top:20px;font:400 12px/1.6 var(--mono);color:#6d6b67;letter-spacing:.02em;max-width:80ch}
+.routes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:clamp(64px,8vw,100px)}
+.route{position:relative;border-radius:6px;overflow:hidden;min-height:480px;display:flex;align-items:flex-end}
+.route img{position:absolute;inset:0}
+.route::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,11,.96) 10%,rgba(10,10,11,.35) 60%,rgba(10,10,11,.1))}
+.route .in{position:relative;z-index:1;padding:36px}
+.route h3{font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-.03em;margin:14px 0 12px}
+.route p{color:#c9c5be;max-width:42ch}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}.steps > div:nth-child(3){border-left:0;padding-left:0}.steps > div:nth-child(n+3){border-top:1px solid var(--line)}.routes{grid-template-columns:1fr}.route{min-height:420px}}
+
+/* ladder */
+.ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:end}
+.rung{border:1px solid var(--line);border-radius:6px;padding:28px 24px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+.rung:nth-child(1){min-height:280px}.rung:nth-child(2){min-height:340px}.rung:nth-child(3){min-height:420px;background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.rung .label{margin-bottom:auto}
+.rung:nth-child(3) .label{color:#55524d}
+.rung h3{font-size:30px;font-weight:800;letter-spacing:-.03em}
+.rung p{font-size:15px;color:#a9a59f}
+.rung:nth-child(3) p{color:#3b3935}
+.rung .it{font-size:19px;color:var(--mute)}
+.rung:nth-child(3) .it{color:#55524d}
+
+@media (max-width:560px){.ladder{grid-template-columns:1fr}.rung{min-height:0!important}.rung .label{margin-bottom:24px}}
+
+/* compare */
+.compare{width:100%;border-collapse:collapse;font-size:16px}
+.compare th,.compare td{text-align:left;padding:20px 16px 20px 0;border-top:1px solid var(--line);vertical-align:top}
+.compare th{font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--mute);font-weight:500}
+.compare td:first-child{color:var(--mute);width:28%}
+.compare td:nth-child(2){color:#77746f}
+.compare td:nth-child(3){color:var(--ink);font-weight:500}
+.compare th:nth-child(3){color:var(--sky)}
+
+/* faq */
+.faq .grid{display:grid;grid-template-columns:4fr 8fr;gap:clamp(32px,6vw,96px)}
+details{border-top:1px solid var(--line)}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:26px 0;display:flex;justify-content:space-between;gap:24px;font:600 20px/1.3 var(--sans);letter-spacing:-.02em}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:400 22px var(--mono);color:var(--mute);transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:#a9a59f;padding:0 0 28px;max-width:60ch}
+@media (max-width:860px){.faq .grid{grid-template-columns:1fr}}
+
+/* apply */
+.apply{position:relative;min-height:92svh;display:flex;align-items:flex-end;overflow:hidden}
+.apply > img{position:absolute;inset:0}
+.apply::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 4%,rgba(10,10,11,.4) 45%,rgba(10,10,11,0) 80%);z-index:1}
+.apply .wrap{position:relative;z-index:2;width:100%;min-width:0}
+.apply h2{font-size:clamp(52px,9vw,140px)}
+.apply .row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:end;margin-top:48px}
+form{display:flex;gap:8px;background:rgba(17,17,19,.8);border:1px solid #2c2c30;border-radius:999px;padding:6px;backdrop-filter:blur(10px)}
+form input{flex:1;min-width:0;background:none;border:0;color:var(--ink);font:400 16px var(--sans);padding:0 20px;outline:none}
+form input::placeholder{color:#77746f}
+form .btn{padding:16px 24px}
+.ok{display:none;color:var(--sky);font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;margin-top:14px}
+.ok.show{display:block}
+@media (max-width:860px){.apply .row{grid-template-columns:minmax(0,1fr)}}
+
+footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+
+/* cta band between sections */
+.cta-band{display:flex;justify-content:space-between;align-items:center;gap:24px 40px;flex-wrap:wrap;margin-top:clamp(56px,8vw,96px);padding-top:clamp(32px,4vw,48px);border-top:1px solid var(--line)}
+.cta-band p{font:400 italic clamp(26px,2.8vw,38px)/1.1 var(--serif);color:#d8d3cb;max-width:22ch}
+.cta-band .btns{display:flex;gap:12px;flex-wrap:wrap}
+.step{font-size:22px;color:var(--sky);margin-bottom:20px}
+.steps .horizon .step{color:var(--mute)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.hero .media img{animation:none;transform:none}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#top" class="brand">JAY ALVARREZ<span>Creator Lab</span></a>
+  <div class="links">
+    <a class="l" href="#program">Program</a>
+    <a class="l" href="#inside">Inside</a>
+    <a class="l" href="#path">The path</a>
+    <a class="l" href="#faq">FAQ</a>
+    <a class="btn solid" href="#apply">Apply</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="copy">
+    <span class="label">The Creator Lab · <b>Applications open</b></span>
+    <div>
+      <h1>Live more adventures.<span class="it">Then turn them into a living.</span></h1>
+      <p class="lead" style="margin-top:28px">A 12-week coached program by Jay Alvarrez for adventure, travel and sports creators. Learn to film content nobody can scroll past, and turn it into income.</p>
+      <div class="cta">
+        <a class="btn solid" href="#apply">Apply to the Lab <span class="arr">→</span></a>
+        <a class="btn ghost" href="#apply">Join the free challenge</a>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="n">8.0M</div><span class="label">Instagram</span></div>
+      <div class="stat"><div class="n">443M</div><span class="label">Views, 20 recent reels</span></div>
+      <div class="stat"><div class="n">80+</div><span class="label">Countries filmed</span></div>
+    </div>
+  </div>
+  <div class="media"><img src="assets/skydive-borabora.jpg" alt="Jay Alvarrez in freefall above Bora Bora's lagoon"></div>
+</header>
+
+<!-- WHY -->
+<section class="why">
+  <div class="wrap">
+    <div class="head rv"><span class="label">The why</span></div>
+    <h2 class="rv">Get outside.<span class="it">Live a life bigger than a desk.</span></h2>
+    <div class="grid rv" style="margin-top:clamp(48px,6vw,80px)">
+      <div><h3>Explore</h3><p>The world and the outdoors, not a screen at the office for the rest of your life.</p></div>
+      <div><h3>Document</h3><p>Film every adventure like a pro, starting with the very next one.</p></div>
+      <div><h3>Grow</h3><p>Build an audience along the way, and let it open doors to brands.</p></div>
+    </div>
+    <div class="strip rv">
+      <figure><img src="assets/freefall-duo.jpg" alt="Two skydivers upside down above a tepui" loading="lazy"></figure>
+      <figure><img src="assets/balloon-ledge.jpg" alt="Sitting on the edge of a hot-air balloon basket at sunrise" loading="lazy"></figure>
+      <figure><img src="assets/sky-skate.jpg" alt="Skateboarding on a ramp hung above the clouds" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- JAY -->
+<section class="jay" id="jay">
+  <div class="wrap">
+    <div class="head rv"><span class="label">Your coach</span></div>
+    <div class="grid">
+      <figure class="photo rv"><img src="assets/portrait-robe.jpg" alt="Portrait of Jay Alvarrez on a boat" loading="lazy"></figure>
+      <div>
+        <h2 class="rv">Jay Alvarrez<span class="it">Athlete. Filmmaker. Self&#8209;taught.</span></h2>
+        <p class="bio rv">Raised in Hawaii, Jay left school at 15 and taught himself everything. Fifteen years later he has filmed extreme sport across more than 80 countries: skydives from balloons, skateboarding above the clouds, surf behind helicopters.</p>
+        <p class="bio rv">He performs, writes and directs the work himself. His videos win on the idea, not the transitions, and that method can be taught. The Creator Lab is where he teaches it.</p>
+        <div class="facts rv">
+          <div><div class="n">6.3M</div><span class="label">Median views per reel</span></div>
+          <div><div class="n sky">101M</div><span class="label">Views in 90 days</span></div>
+          <div><div class="n">48</div><span class="label">Brand partners</span></div>
+        </div>
+        <div class="reels rv" id="reels">
+          <span class="label" style="display:block;margin-bottom:16px">Top reels · 12 months</span>
+          <div class="row"><div>When she's stealing all the…<div class="bar"><i data-w="100"></i></div></div><span class="v">217M</span></div>
+          <div class="row top"><div>Platonic morning jumps<div class="bar"><i data-w="80"></i></div></div><span class="v">173M</span></div>
+          <div class="row"><div>A trampoline above the clouds<div class="bar"><i data-w="43"></i></div></div><span class="v">92.5M</span></div>
+          <div class="row"><div>When the GP…<div class="bar"><i data-w="28"></i></div></div><span class="v">61M</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="cta-band rv"><p>Want to learn how these get made?</p><div class="btns"><a class="btn solid" href="#apply">Apply to the Lab <span class="arr">→</span></a><a class="btn ghost" href="#apply">Join the free challenge</a></div></div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section class="program" id="program">
+  <div class="wrap">
+    <div class="head rv"><span class="label">The program</span></div>
+    <div class="promise">
+      <h2 class="rv">A coached program.<span class="it">Not another course.</span></h2>
+      <p class="q rv">“Make content nobody can scroll past, and get paid for it.”</p>
+    </div>
+    <div class="three rv">
+      <div><span class="num">Who it's for</span><h3>Adventure, travel and sports creators</h3><p>Aspiring and early creators who want to turn what they film into income. You start alongside your job; nobody has to quit to begin.</p></div>
+      <div><span class="num">How it works</span><h3>Small coached groups, by application</h3><p>Over 12 weeks you create, grow, then pitch. You publish every week and get personal feedback every week.</p></div>
+      <div><span class="num">What you leave with</span><h3>Proof, a system and a pitch</h3><p>A body of published work, your own concept system and a media kit ready for brands.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSIDE -->
+<section id="inside">
+  <div class="wrap">
+    <div class="head rv"><span class="label">What's inside</span></div>
+    <h2 class="rv" style="margin-bottom:clamp(48px,6vw,80px)">The method, the coaching,<span class="it">and a tool nobody else has.</span></h2>
+    <div class="cards">
+      <div class="card rv">
+        <h3>The Method</h3><span class="it">Recorded by Jay</span>
+        <ul><li>Core modules, filmed by Jay</li><li>Jay's official LUTs and presets</li><li>Media kit and outreach templates</li><li>A community of creators</li></ul>
+      </div>
+      <div class="card rv">
+        <h3>The Coaching</h3><span class="it">Every single week</span>
+        <ul><li>Live workshops every week</li><li>Personal video feedback</li><li>Small groups per coach</li><li>Pitch Day to close the program</li></ul>
+      </div>
+      <div class="card feat rv">
+        <h3>The Concept Engine</h3><span class="it">Ideas, on demand</span>
+        <ul><li>Tracks rising sounds, formats and hashtags in your niche</li><li>Turns them into concepts in your style</li><li>Adds the hook and a shot list</li></ul>
+      </div>
+    </div>
+    <div class="note rv"><b>65%</b><span>of students in small coached groups finish, against 42% for self-paced courses.</span></div>
+    <div class="cta-band rv"><p>Small groups. Limited spots each cohort.</p><div class="btns"><a class="btn solid" href="#apply">Apply for the next cohort <span class="arr">→</span></a><a class="btn ghost" href="#apply">Join the free challenge</a></div></div>
+  </div>
+</section>
+
+<!-- PATH -->
+<section class="path" id="path">
+  <div class="wrap">
+    <div class="head rv"><span class="label">The path</span></div>
+    <h2 class="rv" style="margin-bottom:clamp(48px,6vw,80px)">Four steps,<span class="it">told honestly.</span></h2>
+    <div class="steps rv">
+      <div><span class="it step">First</span><h3>Your first adventure, filmed like a pro</h3></div>
+      <div><span class="it step">Then</span><h3>Your first paid deal with a brand</h3></div>
+      <div><span class="it step">Next</span><h3>Adventures that pay for themselves</h3></div>
+      <div class="horizon"><span class="it step">One day, maybe</span><h3>For some, a full-time career</h3></div>
+    </div>
+    <p class="disclaim rv">The first three are what the Lab works toward with you. The last one is a horizon to aim for, never a guarantee.</p>
+
+    <div class="routes">
+      <div class="route rv">
+        <img src="assets/balloon-trampoline.jpg" alt="Playing ball on a trampoline hung under a hot-air balloon" loading="lazy">
+        <div class="in"><span class="label"><b>Start here</b> · The UGC path</span><h3>First income, no big audience needed.</h3><p>Film adventure content that outdoor brands use in their own ads. Fast, concrete wins while you build.</p></div>
+      </div>
+      <div class="route rv">
+        <img src="assets/balloon-sunrise.jpg" alt="Sunrise from the edge of a hot-air balloon" loading="lazy" style="object-position:50% 35%">
+        <div class="in"><span class="label"><b>Go further</b> · The premium path</span><h3>For those who want to go further.</h3><p>Build a personal brand, grow an audience and land paid campaigns. This is where Jay's style and network make the difference.</p></div>
+      </div>
+    </div>
+  </div>
+  <div style="height:clamp(80px,12vw,160px)"></div>
+</section>
+
+<!-- LADDER -->
+<section id="ways">
+  <div class="wrap">
+    <div class="head rv"><span class="label">Ways in</span></div>
+    <h2 class="rv" style="margin-bottom:clamp(48px,6vw,80px)">Start where you are.<span class="it">Go as high as you want.</span></h2>
+    <div class="ladder">
+      <div class="rung rv"><span class="label">The way in</span><h3>Free Challenge</h3><span class="it">5 live days</span><p>Film and post with Jay over five live days. Free.</p></div>
+      <div class="rung rv"><span class="label">A first win</span><h3>Edit Kit</h3><span class="it">Jay's toolkit</span><p>His LUTs, presets, sounds and templates.</p></div>
+      <div class="rung rv"><span class="label">The core</span><h3>Creator Lab</h3><span class="it">12 coached weeks</span><p>Small groups, weekly feedback, Pitch Day. By application.</p></div>    </div>
+    <div class="cta-band rv"><p>Not sure where to start? Start free.</p><div class="btns"><a class="btn solid" href="#apply">Apply to the Lab <span class="arr">→</span></a><a class="btn ghost" href="#apply">Join the free challenge</a></div></div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section>
+  <div class="wrap">
+    <div class="head rv"><span class="label">Why the Lab</span></div>
+    <h2 class="rv" style="margin-bottom:clamp(48px,6vw,80px)">Courses are everywhere.<span class="it">Coaching for adventure content is not.</span></h2>
+    <div class="rv" style="overflow-x:auto">
+      <table class="compare">
+        <tr><th></th><th>Typical creator course</th><th>The Creator Lab</th></tr>
+        <tr><td>Format</td><td>Self-paced videos</td><td>12 coached weeks, small groups</td></tr>
+        <tr><td>Focus</td><td>Long-form YouTube or editing</td><td>Short-form adventure: Reels, TikTok, Shorts, POV and 360</td></tr>
+        <tr><td>Filming craft</td><td>Phone basics, if any</td><td>Shot-by-shot, from the person who filmed it</td></tr>
+        <tr><td>Personal feedback</td><td>None</td><td>Every week, on your own videos</td></tr>
+        <tr><td>Ideas</td><td>Up to you</td><td>The Concept Engine, tuned to your niche</td></tr>
+        <tr><td>Getting paid</td><td>Not covered</td><td>Media kit, outreach templates and Pitch Day</td></tr>
+      </table>
+    </div>
+    <div class="cta-band rv"><p>Stop scrolling past other people’s adventures.</p><div class="btns"><a class="btn solid" href="#apply">Apply to the Lab <span class="arr">→</span></a><a class="btn ghost" href="#apply">Join the free challenge</a></div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="wrap grid">
+    <div><span class="label rv">FAQ</span><h2 class="rv" style="margin-top:28px">Questions,<span class="it">answered.</span></h2></div>
+    <div class="rv">
+      <details open><summary>Do I need to quit my job?</summary><p>No. The Lab is built to run alongside a job or studies. Nobody has to quit to begin.</p></details>
+      <details><summary>Do I need a big audience to join?</summary><p>No. The UGC path gets you paid by brands for content they use in their own ads, with no following required.</p></details>
+      <details><summary>What gear do I need?</summary><p>A phone or an action camera is enough to start. Students also get gear perks through Jay's camera partners.</p></details>
+      <details><summary>Why is it by application?</summary><p>Groups are small so every student gets real feedback from a coach. A short call makes sure the Lab is the right fit. Not ready yet? A self-paced version is offered after the call.</p></details>
+      <details><summary>How much does it cost?</summary><p>Pricing and cohort dates are shared on your application call. The free challenge and the Edit Kit are the easiest ways to start.</p></details>
+      <details><summary>Will I make money?</summary><p>We promise reachable steps, not income. The Lab gives you the craft, the system and the pitch; results depend on the work you put in.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY -->
+<section class="apply" id="apply">
+  <img src="assets/moto-sunset.jpg" alt="Riding dirt bikes on a beach at sunset" loading="lazy">
+  <div class="wrap">
+    <span class="label rv">The Creator Lab · Next cohort</span>
+    <h2 class="rv" style="margin-top:24px">Your next adventure<span class="it">starts here.</span></h2>
+    <div class="row">
+      <p class="lead rv">Join the waitlist for the next cohort and the free 5-day challenge. Applications open to the waitlist first.</p>
+      <div class="rv">
+        <!-- TODO: point action at the real CRM / email tool endpoint -->
+        <form id="wl" action="#" method="post">
+          <input type="email" name="email" required placeholder="Your email" aria-label="Email address" autocomplete="email">
+          <button class="btn solid" type="submit">Apply <span class="arr">→</span></button>
+        </form>
+        <div class="ok" id="ok" role="status">You're on the list. Watch your inbox.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="label">© 2026 The Creator Lab · Jay Alvarrez</span>
+  <span class="label">Instagram · YouTube · TikTok &nbsp;<a href="https://www.instagram.com/jayalvarrez/" target="_blank" rel="noopener" style="color:var(--ink)">@jayalvarrez</a></span>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40),{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');e.target.querySelectorAll('[data-w]').forEach(b=>b.style.width=b.dataset.w+'%');io.unobserve(e.target)}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.getElementById('wl').addEventListener('submit',e=>{e.preventDefault();e.target.style.display='none';document.getElementById('ok').classList.add('show')});
+</script>
+</body>
+</html>
