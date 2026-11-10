@@ -74,11 +74,11 @@ nav .btn{padding:12px 20px;font-size:14px}
 
 /* why */
 .why{background:var(--bg);overflow:hidden}
-.why .grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.why .grid{display:grid;grid-template-columns:repeat(3,1fr)}
 .why .grid div{padding:32px 32px 0 0}
-.why .grid div+div{padding-left:32px;border-left:1px solid var(--line)}
+.why .grid div+div{padding-left:32px}
 .why .grid p{color:#a9a59f;margin-top:12px;max-width:32ch}
-@media (max-width:760px){.why .grid{grid-template-columns:1fr}.why .grid div+div{border-left:0;padding-left:0;border-top:1px solid var(--line);margin-top:32px}}
+@media (max-width:760px){.why .grid{grid-template-columns:1fr}.why .grid div+div{padding-left:0;margin-top:32px}}
 
 .strip{display:grid;grid-template-columns:1.1fr .8fr 1fr;gap:12px;margin-top:clamp(56px,8vw,100px);height:clamp(260px,38vw,520px)}
 .strip figure{overflow:hidden;border-radius:4px}
@@ -97,35 +97,25 @@ nav .btn{padding:12px 20px;font-size:14px}
 .program{background:var(--bg2)}
 .promise{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:end}
 .promise .q{font:400 italic clamp(36px,4.6vw,64px)/1.02 var(--serif);letter-spacing:-.01em}
-.three{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:clamp(56px,8vw,96px);border-top:1px solid var(--line)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:clamp(56px,8vw,96px)}
 .three > div{padding:32px 32px 0 0}
-.three > div + div{padding-left:32px;border-left:1px solid var(--line)}
+.three > div + div{padding-left:32px}
 .three p{color:#a9a59f;margin-top:12px}
-@media (max-width:860px){.promise,.three{grid-template-columns:1fr}.three > div + div{border-left:0;padding-left:0;border-top:1px solid var(--line);margin-top:32px}}
+@media (max-width:860px){.promise,.three{grid-template-columns:1fr}.three > div + div{padding-left:0;margin-top:32px}}
 
 /* inside */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.card{background:var(--bg2);border:1px solid var(--line);border-radius:6px;padding:36px 32px;display:flex;flex-direction:column;min-height:420px;transition:border-color .3s}
-.card:hover{border-color:#3a3a3e}
-.card h3{font-size:32px;font-weight:800;letter-spacing:-.03em}
-.card .it{font-size:20px;margin-top:6px;color:var(--mute)}
-.card ul{list-style:none;margin-top:auto;padding-top:40px}
-.card li{padding:13px 0;border-top:1px solid var(--line);font-size:15px;color:#cfcac2;display:flex;gap:12px}
-.card li::before{content:"→";font-family:var(--mono);color:var(--sky);font-size:13px;padding-top:2px}
-.card.feat{background:linear-gradient(160deg,#16222a 0%,var(--bg2) 60%);border-color:#24343d}
 .value{margin-top:clamp(56px,8vw,96px)}
 .value table{width:100%;border-collapse:collapse;margin-top:24px;font-size:16px}
-.value td{padding:16px 0;border-top:1px solid var(--line);color:#cfcac2;vertical-align:top}
+.value td{padding:16px 0;color:#cfcac2;vertical-align:top}
 .value td:last-child{text-align:right;padding-left:24px;white-space:nowrap;font-weight:500;color:var(--ink)}
 .value td b{color:var(--sky);font-weight:500}
 .value tr.total td{border-top:1px solid var(--ink);font:800 clamp(22px,2.4vw,30px)/1.1 var(--sans);letter-spacing:-.03em;color:var(--ink);padding-top:20px}
-@media (max-width:960px){.cards{grid-template-columns:1fr}.card{min-height:0}}
 
 /* path */
 .path{position:relative;overflow:hidden;padding-bottom:0}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr)}
 .steps > div{padding:32px 24px 40px 0;position:relative}
-.steps > div + div{padding-left:24px;border-left:1px solid var(--line)}
+.steps > div + div{padding-left:24px}
 .steps h3{font-size:clamp(20px,2vw,26px)}
 .steps .horizon{color:var(--mute)}
 .steps .horizon .num{color:var(--mute)}
@@ -137,7 +127,7 @@ nav .btn{padding:12px 20px;font-size:14px}
 .route .in{position:relative;z-index:1;padding:36px}
 .route h3{font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-.03em;margin:14px 0 12px}
 .route p{color:#c9c5be;max-width:42ch}
-@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}.steps > div:nth-child(3){border-left:0;padding-left:0}.steps > div:nth-child(n+3){border-top:1px solid var(--line)}.routes{grid-template-columns:1fr}.route{min-height:420px}}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}.steps > div:nth-child(3){padding-left:0}.routes{grid-template-columns:1fr}.route{min-height:420px}}
 
 
 /* testimonials (placeholders until content is collected) */
@@ -173,7 +163,7 @@ details p{color:#a9a59f;padding:0 0 28px;max-width:60ch}
 footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
 
 /* cta band between sections */
-.cta-band{display:flex;justify-content:space-between;align-items:center;gap:24px 40px;flex-wrap:wrap;margin-top:clamp(56px,8vw,96px);padding-top:clamp(32px,4vw,48px);border-top:1px solid var(--line)}
+.cta-band{display:flex;justify-content:space-between;align-items:center;gap:24px 40px;flex-wrap:wrap;margin-top:clamp(56px,8vw,96px)}
 .cta-band p{font:400 italic clamp(26px,2.8vw,38px)/1.1 var(--serif);color:#d8d3cb;max-width:22ch}
 .cta-band .btns{display:flex;gap:12px;flex-wrap:wrap}
 .step{font-size:22px;color:var(--sky);margin-bottom:20px}
@@ -264,20 +254,6 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
 <section id="inside">
   <div class="wrap">
     <h2 class="rv" style="margin-bottom:clamp(48px,6vw,80px)">The method, the coaching,<span class="it">and Jay's own idea tool.</span></h2>
-    <div class="cards">
-      <div class="card rv">
-        <h3>The Method</h3><span class="it">Recorded by Jay</span>
-        <ul><li>Core modules, filmed by Jay</li><li>Jay's official LUTs and presets</li><li>Media kit and outreach templates</li><li>A community of creators</li></ul>
-      </div>
-      <div class="card rv">
-        <h3>The Coaching</h3><span class="it">Every single week</span>
-        <ul><li>Live workshops every week</li><li>Personal video feedback</li><li>Small groups per coach</li><li>Pitch Day to close the program</li></ul>
-      </div>
-      <div class="card feat rv">
-        <h3>The Concept Engine</h3><span class="it">Ideas, on demand</span>
-        <ul><li>Tracks rising sounds, formats and hashtags in your niche</li><li>Turns them into concepts in your style</li><li>Adds the hook and a shot list</li></ul>
-      </div>
-    </div>
     <div class="value rv">
       <table>
         <tr><td>Weekly live workshops with Jay and the coaches, with replays</td><td>Included</td></tr>
