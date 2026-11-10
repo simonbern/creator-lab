@@ -25,7 +25,6 @@ section{padding:clamp(72px,10vw,128px) var(--pad);border-top:1px solid var(--lin
 .wrap{max-width:1180px;margin:0 auto}
 .narrow{max-width:760px;margin:0 auto}
 .head{margin-bottom:clamp(32px,5vw,56px)}
-.head h2{margin-top:20px}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:18px 28px;border-radius:999px;font:600 15px/1 var(--sans);letter-spacing:-.01em;transition:transform .2s,background .2s;border:0;cursor:pointer}
 .btn.solid{background:var(--ink);color:var(--bg)}
@@ -52,7 +51,7 @@ nav .btn{padding:12px 20px;font-size:14px}
 /* forms */
 .form{display:grid;gap:18px;background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:clamp(24px,3vw,36px)}
 .field{display:grid;gap:8px}
-.field > span{font:500 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.field > span{font:500 15px/1.3 var(--sans);color:#cfcac2}
 .field input,.field select,.field textarea{width:100%;background:var(--bg);border:1px solid #2c2c30;border-radius:6px;color:var(--ink);font:400 16px var(--sans);padding:14px 16px;outline:none}
 .field textarea{min-height:96px;resize:vertical}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--sky)}
@@ -77,10 +76,6 @@ nav .btn{padding:12px 20px;font-size:14px}
 
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 @media (max-width:900px){.grid3{grid-template-columns:1fr}}
-/* steps (apply page) */
-.stepper{display:flex;gap:24px;margin-bottom:28px}
-.stepper span{font:500 11px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:#55524d}
-.stepper span.on{color:var(--sky)}
 [hidden]{display:none!important}
 
 /* faq */

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Apply · The Creator Lab</title>
+<title>Apply to the Creator Lab</title>
 <meta name="description" content="Apply to the Creator Lab, Jay Alvarrez's 12-week coached program, and book your call.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,6 @@
 
 <section style="border:0">
   <div class="narrow">
-    <div class="stepper"><span class="on" id="s1">1 · Apply</span><span id="s2">2 · Book your call</span></div>
 
     <div id="step1">
       <h1>Apply to the Lab.<span class="it">It takes two minutes.</span></h1>
@@ -28,7 +27,7 @@
           <label class="field"><span>Email</span><input type="email" name="email" required autocomplete="email"></label>
         </div>
         <label class="field"><span>Mobile phone</span><input type="tel" name="phone" required autocomplete="tel"></label>
-        <div class="field"><span>1 · Your niche</span>
+        <div class="field"><span>Your niche</span>
           <div class="choices">
             <label><input type="radio" name="niche" value="adventure" required><span>Adventure</span></label>
             <label><input type="radio" name="niche" value="travel"><span>Travel</span></label>
@@ -37,9 +36,9 @@
             <label><input type="radio" name="niche" value="other"><span>Other</span></label>
           </div>
         </div>
-        <label class="field"><span>2 · Your Instagram</span><input name="instagram" required placeholder="@yourhandle"></label>
-        <label class="field"><span>3 · What do you want from the next 12 weeks?</span><textarea name="goal" required placeholder="Your first brand deal, a steady posting habit, better filming..."></textarea></label>
-        <div class="field"><span>4 · What can you invest in your growth right now?</span>
+        <label class="field"><span>Your Instagram</span><input name="instagram" required placeholder="@yourhandle"></label>
+        <label class="field"><span>What do you want from the next 12 weeks?</span><textarea name="goal" required placeholder="Your first brand deal, a steady posting habit, better filming..."></textarea></label>
+        <div class="field"><span>What can you invest in your growth right now?</span>
           <div class="choices">
             <!-- ponytail: ranges are placeholders, set them once the Lab price is final -->
             <label><input type="radio" name="budget" value="under-1000" required><span>Under $1,000</span></label>
@@ -47,7 +46,7 @@
             <label><input type="radio" name="budget" value="3000-plus"><span>$3,000 or more</span></label>
           </div>
         </div>
-        <div class="field"><span>5 · When do you want to start?</span>
+        <div class="field"><span>When do you want to start?</span>
           <div class="choices">
             <label><input type="radio" name="start" value="now" required><span>Right away</span></label>
             <label><input type="radio" name="start" value="month"><span>Within a month</span></label>
@@ -56,7 +55,7 @@
           </div>
         </div>
         <button class="btn solid wide" type="submit">Continue to booking <span class="arr">→</span></button>
-        <p class="fine">No payment today. <span class="ph-text">[Link to privacy policy]</span></p>
+        <p class="fine"><span class="ph-text">[Link to privacy policy]</span></p>
       </form>
     </div>
 
@@ -71,7 +70,7 @@
 </section>
 
 <footer>
-  <span class="label">© 2026 The Creator Lab · Jay Alvarrez</span>
+  <span class="label">© 2026 The Creator Lab, Jay Alvarrez</span>
   <a class="label" href="index.html">The Creator Lab</a>
 </footer>
 
@@ -80,8 +79,6 @@ document.getElementById('app').addEventListener('submit',e=>{
   e.preventDefault();
   document.getElementById('step1').hidden=true;
   document.getElementById('step2').hidden=false;
-  document.getElementById('s1').classList.remove('on');
-  document.getElementById('s2').classList.add('on');
   scrollTo(0,0);
 });
 </script>
