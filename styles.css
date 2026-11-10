@@ -70,7 +70,7 @@ nav .btn{padding:12px 20px;font-size:14px}
 
 /* placeholder blocks: anything still to collect or wire */
 /* deliberately plain so placeholders stand out from the design */
-.ph,.ph-text{border:1px solid #ff8a00;border-radius:0;background:none;color:#fff;font:400 15px/1.45 Arial,Helvetica,sans-serif!important;font-style:normal!important;letter-spacing:0!important;text-transform:none!important}
+.ph,.ph-text{border:1px solid #ff3b3b;border-radius:0;background:none;color:#ff3b3b;font:400 15px/1.45 Arial,Helvetica,sans-serif!important;font-style:normal!important;letter-spacing:0!important;text-transform:none!important}
 .ph{display:block;padding:16px}
 .ph-text{display:inline-block;padding:2px 6px}
 .video{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;text-align:center}

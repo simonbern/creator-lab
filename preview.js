@@ -15,11 +15,11 @@
   const here = location.pathname.split('/').pop() || 'index.html';
   const css = document.createElement('style');
   css.textContent = `
-    #pv{position:fixed;top:0;left:0;right:0;height:40px;z-index:9999;display:flex;align-items:center;gap:4px;padding:0 8px;background:#fff;color:#000;font:13px/1 Arial,Helvetica,sans-serif;overflow-x:auto;white-space:nowrap;border-bottom:2px solid #ff8a00}
-    #pv b{padding:0 8px;color:#ff8a00}
-    #pv a{color:#000;padding:8px 10px;text-decoration:none;border-radius:3px}
-    #pv a:hover{background:#eee}
-    #pv a.on{background:#000;color:#fff}
+    #pv{position:fixed;top:0;left:0;right:0;height:40px;z-index:9999;display:flex;align-items:center;gap:4px;padding:0 8px;background:#1a56db;color:#fff;font:13px/1 Arial,Helvetica,sans-serif;overflow-x:auto;white-space:nowrap}
+    #pv b{padding:0 8px;color:#fff}
+    #pv a{color:#fff;padding:8px 10px;text-decoration:none;border-radius:3px}
+    #pv a:hover{background:rgba(255,255,255,.15)}
+    #pv a.on{background:#fff;color:#1a56db}
     body{padding-top:40px!important}
     body>nav{top:40px!important}`;
   const bar = document.createElement('div');
