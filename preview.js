@@ -2,14 +2,8 @@
 (() => {
   const pages = [
     ['index.html', 'Landing'],
-    ['masterclass.html', 'Masterclass sign-up'],
-    ['masterclass-thanks.html', 'Masterclass thank-you'],
-    ['masterclass-watch.html', 'Masterclass video'],
     ['apply.html', 'Apply + booking'],
     ['booked.html', 'Call booked'],
-    ['edit-kit.html', 'Edit Kit'],
-    ['edit-kit-thanks.html', 'Edit Kit thank-you'],
-    ['concept-engine.html', 'Concept Engine'],
     ['onboarding.html', 'Onboarding'],
   ];
   const here = location.pathname.split('/').pop() || 'index.html';

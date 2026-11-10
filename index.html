@@ -154,24 +154,6 @@ nav .btn{padding:12px 20px;font-size:14px}
 .route p{color:#c9c5be;max-width:42ch}
 @media (max-width:860px){.steps{grid-template-columns:1fr 1fr}.steps > div:nth-child(3){border-left:0;padding-left:0}.steps > div:nth-child(n+3){border-top:1px solid var(--line)}.routes{grid-template-columns:1fr}.route{min-height:420px}}
 
-/* ladder */
-.ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:end}
-.rung{border:1px solid var(--line);border-radius:6px;padding:28px 24px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
-.rung:nth-child(1){min-height:300px}.rung:nth-child(2){min-height:350px}.rung:nth-child(3){min-height:400px}
-.rung.core{min-height:460px;background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.rung .label{margin-bottom:auto}
-.rung.core .label{color:#55524d}
-.rung h3{font-size:30px;font-weight:800;letter-spacing:-.03em}
-.rung p{font-size:15px;color:#a9a59f}
-.rung.core p{color:#3b3935}
-.rung .it{font-size:19px;color:var(--mute)}
-.rung.core .it{color:#55524d}
-.rung .price{font:600 18px var(--sans);color:var(--ink);letter-spacing:-.02em}
-.rung .price s{color:var(--mute);font-weight:400;margin-right:6px}
-.rung .go{margin-top:8px;padding-top:14px;border-top:1px solid var(--line);font:600 14px var(--sans);color:var(--sky)}
-.rung.core .price{color:var(--bg)}
-.rung.core .go{color:var(--bg);border-color:#cfcac2}
-@media (max-width:1060px){.ladder{grid-template-columns:1fr 1fr}}
 
 /* testimonials (placeholders until content is collected) */
 .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
@@ -179,7 +161,6 @@ nav .btn{padding:12px 20px;font-size:14px}
 .ph{display:block;padding:16px;border:1px solid #ff3b3b;background:none;color:#ff3b3b;font:400 15px/1.45 Arial,Helvetica,sans-serif}
 @media (max-width:860px){.quotes{grid-template-columns:1fr}}
 
-@media (max-width:560px){.ladder{grid-template-columns:1fr}.rung{min-height:0!important}.rung .label{margin-bottom:24px}}
 
 /* compare */
 .compare{width:100%;border-collapse:collapse;font-size:16px}
@@ -248,7 +229,7 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
       <p class="lead" style="margin-top:28px">A 12-week coached program by Jay Alvarrez for adventure, travel and sports creators. Learn to film content nobody can scroll past, and turn it into income.</p>
       <div class="cta">
         <a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a>
-        <a class="btn ghost" href="masterclass.html">Watch the free masterclass</a>
+        
       </div>
     </div>
     <div class="stats">
@@ -302,7 +283,7 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
         </div>
       </div>
     </div>
-    <div class="cta-band rv"><p>Want to learn how these get made?</p><div class="btns"><a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a><a class="btn ghost" href="masterclass.html">Watch the free masterclass</a></div></div>
+    <div class="cta-band rv"><p>Want to learn how these get made?</p><div class="btns"><a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a></div></div>
   </div>
 </section>
 
@@ -351,14 +332,13 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
         <tr><td>Pitch Day</td><td>Included</td></tr>
         <tr><td>The Concept Engine</td><td>$2,000</td></tr>
         <tr><td>The Method: Jay's recorded modules</td><td>$1,500</td></tr>
-        <tr><td>The Edit Kit: LUTs, presets, sounds and templates</td><td>$300</td></tr>
         <tr><td>Media kit and outreach templates</td><td>$700</td></tr>
         <tr><td><b>Bonus 1</b> · Behind the scenes of one of Jay's shoots, start to finish</td><td>$750</td></tr>
         <tr><td><b>Bonus 2</b> · Brand deals workshop: how Jay negotiates with his 48 brand partners</td><td>$750</td></tr>
-        <tr class="total"><td>Total value</td><td>Over $6,000</td></tr>
+        <tr class="total"><td>Total value</td><td>Over $5,700</td></tr>
       </table>
     </div>
-    <div class="cta-band rv"><p>Start any week. No cohort to wait for.</p><div class="btns"><a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a><a class="btn ghost" href="masterclass.html">Watch the free masterclass</a></div></div>
+    <div class="cta-band rv"><p>Start any week. No cohort to wait for.</p><div class="btns"><a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a></div></div>
   </div>
 </section>
 
@@ -389,20 +369,6 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
   <div style="height:clamp(80px,12vw,160px)"></div>
 </section>
 
-<!-- LADDER -->
-<section id="ways">
-  <div class="wrap">
-    <div class="head rv"><span class="label">Ways in</span></div>
-    <h2 class="rv" style="margin-bottom:clamp(48px,6vw,80px)">Start where you are.<span class="it">Go as high as you want.</span></h2>
-    <div class="ladder">
-      <div class="rung rv"><span class="label">The way in</span><h3>Free Masterclass</h3><span class="it">Recorded by Jay</span><p>Jay's method in one session, at the time you choose.</p><p class="price">Free</p><a class="go" href="masterclass.html">Save my seat <span class="arr">→</span></a></div>
-      <div class="rung rv"><span class="label">A first win</span><h3>Edit Kit</h3><span class="it">Jay's toolkit</span><p>His LUTs, presets, sounds and templates.</p><p class="price"><s>$97</s> $57</p><a class="go" href="edit-kit.html">Get the Edit Kit <span class="arr">→</span></a></div>
-      <div class="rung rv"><span class="label">Ideas on demand</span><h3>Concept Engine</h3><span class="it">Monthly plan</span><p>Concepts, hooks and shot lists for your niche.</p><p class="price">From $29 / month</p><a class="go" href="concept-engine.html">See the plans <span class="arr">→</span></a></div>
-      <div class="rung core rv"><span class="label">The core</span><h3>Creator Lab</h3><span class="it">12 coached weeks</span><p>Small groups, weekly feedback, Pitch Day.</p><p class="price">By application</p><a class="go" href="apply.html">Apply <span class="arr">→</span></a></div>
-    </div>
-    <div class="cta-band rv"><p>Not sure where to start? Start with the free masterclass.</p><div class="btns"><a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a><a class="btn ghost" href="masterclass.html">Watch the free masterclass</a></div></div>
-  </div>
-</section>
 
 <!-- COMPARE -->
 <section>
@@ -420,7 +386,7 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
         <tr><td>Getting paid</td><td>Not covered</td><td>Media kit, outreach templates and Pitch Day</td></tr>
       </table>
     </div>
-    <div class="cta-band rv"><p>Stop scrolling past other people’s adventures.</p><div class="btns"><a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a><a class="btn ghost" href="masterclass.html">Watch the free masterclass</a></div></div>
+    <div class="cta-band rv"><p>Stop scrolling past other people’s adventures.</p><div class="btns"><a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a></div></div>
   </div>
 </section>
 
@@ -445,8 +411,8 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
       <details open><summary>Do I need to quit my job?</summary><p>No. The Lab is built to run alongside a job or studies. Nobody has to quit to begin.</p></details>
       <details><summary>Do I need a big audience to join?</summary><p>No. The UGC path gets you paid by brands for content they use in their own ads, with no following required.</p></details>
       <details><summary>What gear do I need?</summary><p>A phone or an action camera is enough to start. Students also get gear perks through Jay's camera partners.</p></details>
-      <details><summary>Why is it by application?</summary><p>Groups are small so every student gets real feedback from a coach. A short call makes sure the Lab is the right fit. Not ready yet? On the call we offer the self-paced version: the Concept Engine top plan at $97 a month, with the tool, the Method and the Edit Kit.</p></details>
-      <details><summary>How much does it cost?</summary><p>Pricing is shared on your application call. The free masterclass and the Edit Kit are the easiest ways to start.</p></details>
+      <details><summary>Why is it by application?</summary><p>Groups are small so every student gets real feedback from a coach. A short call makes sure the Lab is the right fit.</p></details>
+      <details><summary>How much does it cost?</summary><p>Pricing is shared on your application call.</p></details>
       <details><summary>Will I make money?</summary><p>We promise reachable steps, not income. The Lab gives you the craft, the system and the pitch; results depend on the work you put in.</p></details>
     </div>
   </div>
@@ -459,8 +425,8 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
     <span class="label rv">The Creator Lab</span>
     <h2 class="rv" style="margin-top:24px">Your next adventure<span class="it">starts here.</span></h2>
     <div class="row">
-      <p class="lead rv">Apply in a few minutes and book your call with the team. Not ready yet? Start with Jay's free masterclass.</p>
-      <div class="btns rv"><a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a><a class="btn ghost" href="masterclass.html">Watch the free masterclass</a></div>
+      <p class="lead rv">Apply in a few minutes and book your call with the team.</p>
+      <div class="btns rv"><a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a></div>
     </div>
   </div>
 </section>
