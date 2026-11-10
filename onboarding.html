@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Welcome · The Creator Lab</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav><a href="index.html" class="brand">JAY ALVARREZ<span>Creator Lab</span></a></nav>
+
+<section style="border:0">
+  <div class="narrow">
+    <div id="q">
+      <span class="label"><b>Welcome to the Lab</b> · 5 minutes</span>
+      <h1 style="margin:24px 0 24px">Tell us about you.<span class="it">So your coach can start right.</span></h1>
+      <p class="lead" style="margin-bottom:36px">Your answers go to your coach before your first week. Then you get access to the platform.</p>
+      <!-- TODO GoHighLevel: replace with the GHL onboarding form. On submit, show the platform access. -->
+      <form class="form" id="onb">
+        <label class="field"><span>Your Instagram, TikTok and YouTube links</span><textarea name="links" required placeholder="One per line"></textarea></label>
+        <div class="field"><span>What do you film with?</span>
+          <div class="choices">
+            <label><input type="checkbox" name="gear" value="phone"><span>Phone</span></label>
+            <label><input type="checkbox" name="gear" value="action"><span>Action camera</span></label>
+            <label><input type="checkbox" name="gear" value="360"><span>360 camera</span></label>
+            <label><input type="checkbox" name="gear" value="drone"><span>Drone</span></label>
+            <label><input type="checkbox" name="gear" value="camera"><span>Mirrorless or DSLR</span></label>
+          </div>
+        </div>
+        <label class="field"><span>What do you edit with?</span><input name="editor" placeholder="CapCut, Premiere, Final Cut..."></label>
+        <label class="field"><span>The adventures you can film in the next 12 weeks</span><textarea name="adventures" required placeholder="Weekend hikes, a surf trip in March, bike park every Saturday..."></textarea></label>
+        <div class="field"><span>Which path pulls you most?</span>
+          <div class="choices">
+            <label><input type="radio" name="path" value="ugc" required><span>UGC: content for brands' ads</span></label>
+            <label><input type="radio" name="path" value="premium"><span>Premium: grow my own brand</span></label>
+            <label><input type="radio" name="path" value="unsure"><span>Not sure yet</span></label>
+          </div>
+        </div>
+        <label class="field"><span>Your goal for the 12 weeks, in one sentence</span><input name="goal" required></label>
+        <div class="field"><span>Hours you can give each week</span>
+          <div class="choices">
+            <label><input type="radio" name="hours" value="2-4" required><span>2 to 4</span></label>
+            <label><input type="radio" name="hours" value="5-8"><span>5 to 8</span></label>
+            <label><input type="radio" name="hours" value="9+"><span>9 or more</span></label>
+          </div>
+        </div>
+        <label class="field"><span>Your time zone</span><input name="tz" id="tz" required></label>
+        <label class="field"><span>Anything your coach should know?</span><textarea name="notes"></textarea></label>
+        <button class="btn solid wide" type="submit">Send to my coach <span class="arr">→</span></button>
+      </form>
+    </div>
+
+    <div id="done" hidden>
+      <span class="label"><b>All set</b></span>
+      <h1 style="margin:24px 0 24px">You're in the Lab.<span class="it">Week one starts now.</span></h1>
+      <p class="lead">Your coach has your answers. Here's your access.</p>
+      <!-- TODO: link to the course platform and community. -->
+      <div class="ph" style="margin-top:28px">[Platform access: login link, community invite, first workshop date]</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="label">© 2026 The Creator Lab · Jay Alvarrez</span>
+  <a class="label" href="index.html">The Creator Lab</a>
+</footer>
+
+<script>
+try{document.getElementById('tz').value=Intl.DateTimeFormat().resolvedOptions().timeZone}catch(_){}
+document.getElementById('onb').addEventListener('submit',e=>{e.preventDefault();document.getElementById('q').hidden=true;document.getElementById('done').hidden=false;scrollTo(0,0)});
+</script>
+<script src="preview.js"></script>
+</body>
+</html>

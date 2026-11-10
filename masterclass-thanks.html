@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You're In · Jay Alvarrez</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav><a href="index.html" class="brand">JAY ALVARREZ<span>Creator Lab</span></a></nav>
+
+<section style="border:0">
+  <div class="narrow">
+    <span class="label"><b>Seat saved</b> · One last step</span>
+    <h1 style="margin-top:24px">You're in.<span class="it">Now put it in your calendar.</span></h1>
+    <p class="lead" style="margin-top:24px">Your session: <b id="when">the time you picked</b>. The link to join is in the calendar invite and in your email.</p>
+    <div class="btns" style="margin-top:32px">
+      <a class="btn solid" id="gcal" target="_blank" rel="noopener">Google Calendar</a>
+      <a class="btn ghost" id="ics" download="jay-masterclass.ics">Apple Calendar</a>
+      <a class="btn ghost" id="ics2" download="jay-masterclass.ics">Outlook</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="narrow">
+    <div class="head"><span class="label">Before the session</span><h2>Get the most out of it.</h2></div>
+    <ul class="ticks">
+      <li>Join from a laptop if you can, with a notebook nearby.</li>
+      <li>Have one adventure in mind that you want to film next.</li>
+      <li>Stay until the end: that's when your concepts ready to film unlock.</li>
+      <li>Watch your inbox and your texts: we'll remind you the day before, 1 hour before and 5 minutes before.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <span class="label">© 2026 The Creator Lab · Jay Alvarrez</span>
+  <a class="label" href="index.html">The Creator Lab</a>
+</footer>
+
+<script>
+let slot=null;try{slot=sessionStorage.getItem('mc_slot')}catch(_){}
+const start=slot?new Date(slot):new Date(Date.now()+864e5);
+const MIN=90; // ponytail: placeholder length, set to the real recording length
+const end=new Date(start.getTime()+MIN*6e4);
+const z=d=>d.toISOString().replace(/[-:]|\.\d{3}/g,'');
+const title='Jay Alvarrez Free Masterclass';
+const join='[Session link from the webinar tool]'; // TODO: real join link
+document.getElementById('when').textContent=new Intl.DateTimeFormat(undefined,{weekday:'long',month:'long',day:'numeric',hour:'numeric',minute:'2-digit'}).format(start);
+document.getElementById('gcal').href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(title)+'&dates='+z(start)+'/'+z(end)+'&details='+encodeURIComponent('Join: '+join);
+const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Creator Lab//EN','BEGIN:VEVENT','UID:'+z(start)+'@creatorlab','DTSTAMP:'+z(new Date()),'DTSTART:'+z(start),'DTEND:'+z(end),'SUMMARY:'+title,'DESCRIPTION:Join: '+join,'BEGIN:VALARM','TRIGGER:-PT60M','ACTION:DISPLAY','DESCRIPTION:'+title,'END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
+const url='data:text/calendar;charset=utf-8,'+encodeURIComponent(ics);
+document.getElementById('ics').href=url;document.getElementById('ics2').href=url;
+</script>
+<script src="preview.js"></script>
+</body>
+</html>

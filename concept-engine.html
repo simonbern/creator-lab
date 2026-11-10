@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept Engine · Jay Alvarrez</title>
+<meta name="description" content="The Concept Engine: concepts, hooks and shot lists for your niche, on demand. From $29 a month.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="brand">JAY ALVARREZ<span>Creator Lab</span></a>
+  <a class="btn solid" href="#plans">See the plans</a>
+</nav>
+
+<header class="split" style="min-height:auto">
+  <div class="copy">
+    <span class="label">The Concept Engine · <b>Ideas on demand</b></span>
+    <h1>Know what to film next.<span class="it">Every single time.</span></h1>
+    <p class="lead">The tool behind the Creator Lab, now on its own. It tracks rising sounds, formats and hashtags in your niche, turns them into concepts in your style, and adds the hook and a shot list.</p>
+    <div class="btns"><a class="btn solid" href="#plans">See the plans <span class="arr">→</span></a></div>
+  </div>
+  <div class="media" style="min-height:420px"><img src="assets/sky-skate.jpg" alt="Skateboarding on a ramp hung above the clouds"></div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="head"><span class="label">How it works</span><h2>From trend to shot list.</h2></div>
+    <div class="grid3">
+      <div class="card"><span class="label"><b>Step 1</b></span><h3>It watches your niche</h3><p>Rising sounds, formats and hashtags in adventure, travel or sports.</p></div>
+      <div class="card"><span class="label"><b>Step 2</b></span><h3>It writes the concept</h3><p>Ideas shaped to your style and to what you can actually film.</p></div>
+      <div class="card"><span class="label"><b>Step 3</b></span><h3>You get the plan</h3><p>The hook and a shot list, ready for your next day outside.</p></div>
+    </div>
+    <div class="ph" style="margin-top:24px">[Product screenshots or a short demo of the Concept Engine]</div>
+  </div>
+</section>
+
+<section id="plans">
+  <div class="wrap">
+    <div class="head"><span class="label">Plans</span><h2>Pick your plan.</h2></div>
+    <div class="toggle" role="group" aria-label="Billing period">
+      <button type="button" class="on" data-p="m">Monthly</button>
+      <button type="button" data-p="y">Yearly<em>50% off</em></button>
+    </div>
+    <!-- TODO payment: each button goes to the checkout for that plan and period (provider to choose). -->
+    <div class="plans">
+      <div class="plan">
+        <span class="label">To get started</span>
+        <h3>Starter</h3>
+        <div class="amt" data-m="$29" data-y="$14.50">$29<small> / month</small></div>
+        <span class="mute fine bill" data-m="Billed monthly" data-y="$174 billed yearly">Billed monthly</span>
+        <ul class="ticks">
+          <li>Concepts, hooks and shot lists for your niche</li>
+          <li><span>Limited credits each month <span class="ph-text">[number of credits]</span></span></li>
+        </ul>
+        <a class="btn ghost" href="#">Start with Starter</a>
+      </div>
+      <div class="plan">
+        <span class="label">For weekly posting</span>
+        <h3>Pro</h3>
+        <div class="amt" data-m="$59" data-y="$29.50">$59<small> / month</small></div>
+        <span class="mute fine bill" data-m="Billed monthly" data-y="$354 billed yearly">Billed monthly</span>
+        <ul class="ticks">
+          <li>Everything in Starter</li>
+          <li>Unlimited concepts</li>
+        </ul>
+        <a class="btn solid" href="#">Go Pro</a>
+      </div>
+      <div class="plan top">
+        <span class="label">Self-paced Creator Lab</span>
+        <h3>Top plan <span class="ph-text">[name]</span></h3>
+        <div class="amt" data-m="$97" data-y="$48.50">$97<small> / month</small></div>
+        <span class="mute fine bill" data-m="Billed monthly" data-y="$582 billed yearly">Billed monthly</span>
+        <ul class="ticks">
+          <li>Unlimited Concept Engine</li>
+          <li>The Method: Jay's recorded modules</li>
+          <li>The Edit Kit: LUTs, presets, sounds and templates</li>
+        </ul>
+        <a class="btn" href="#">Get the top plan</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="narrow">
+    <div class="head"><span class="label">Want coaching too?</span><h2>The Creator Lab.<span class="it">12 coached weeks with Jay's team.</span></h2></div>
+    <p class="lead">Weekly feedback on your own videos, small groups, Pitch Day, and the Concept Engine included.</p>
+    <div class="btns" style="margin-top:28px"><a class="btn ghost" href="apply.html">Apply to the Lab <span class="arr">→</span></a></div>
+  </div>
+</section>
+
+<footer>
+  <span class="label">© 2026 The Creator Lab · Jay Alvarrez</span>
+  <a class="label" href="index.html">The Creator Lab</a>
+</footer>
+
+<script>
+document.querySelectorAll('.toggle button').forEach(b=>b.addEventListener('click',()=>{
+  const p=b.dataset.p;
+  document.querySelectorAll('.toggle button').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.amt').forEach(a=>a.firstChild.textContent=a.dataset[p]);
+  document.querySelectorAll('.bill').forEach(a=>a.textContent=a.dataset[p]);
+}));
+</script>
+<script src="preview.js"></script>
+</body>
+</html>

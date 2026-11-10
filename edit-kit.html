@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Edit Kit · Jay Alvarrez</title>
+<meta name="description" content="Jay Alvarrez's own LUTs, presets, sounds and templates. Make your adventure footage look like his.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="brand">JAY ALVARREZ<span>Creator Lab</span></a>
+  <a class="btn solid" href="#buy">Get the kit</a>
+</nav>
+
+<header class="split">
+  <div class="copy">
+    <span class="label">The Edit Kit · <b>Jay's own toolkit</b></span>
+    <h1>Make your footage look like Jay's.<span class="it">Starting with your next edit.</span></h1>
+    <p class="lead">The LUTs, presets, sounds and templates Jay uses on his own reels, ready to drop into your edit.</p>
+    <div class="price"><s>$97</s><span class="now">$57</span></div>
+    <span class="urgent">Launch price ends tonight · <b id="cd">00:00:00</b></span>
+    <div class="btns"><a class="btn solid" href="#buy">Get the Edit Kit <span class="arr">→</span></a></div>
+  </div>
+  <div class="media"><img src="assets/moto-sunset.jpg" alt="Riding dirt bikes on a beach at sunset" style="object-position:40% 50%"></div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="head"><span class="label">What's in the kit</span><h2>Everything Jay edits with.</h2></div>
+    <div class="grid3 grid4">
+      <div class="card"><h3>LUTs</h3><p>Jay's colour grades for sky, water, sunsets and snow.</p><span class="ph-text fine">[Number of LUTs]</span></div>
+      <div class="card"><h3>Presets</h3><p>For photos and video, so your feed looks like one story.</p><span class="ph-text fine">[Number and apps supported]</span></div>
+      <div class="card"><h3>Sounds</h3><p>Whooshes, impacts and ambiences for action edits.</p><span class="ph-text fine">[Number of sounds]</span></div>
+      <div class="card"><h3>Templates</h3><p>Edit templates for the formats that work on Reels and TikTok.</p><span class="ph-text fine">[Number and apps supported]</span></div>
+    </div>
+    <div class="ph" style="margin-top:24px">[Before and after: same clip, raw vs. graded with the kit. Images or short video to produce.]</div>
+  </div>
+</section>
+
+<section id="buy">
+  <div class="narrow" style="text-align:center">
+    <span class="label">Launch price</span>
+    <div class="price" style="justify-content:center;margin:24px 0 12px"><s>$97</s><span class="now">$57</span></div>
+    <p class="urgent" style="justify-content:center">Ends tonight · <b id="cd2">00:00:00</b></p>
+    <!-- TODO payment: link to the checkout (provider to choose), with the coupon already applied. On success, redirect to edit-kit-thanks.html. -->
+    <div style="margin-top:28px"><a class="btn solid" href="edit-kit-thanks.html">Get the Edit Kit for $57 <span class="arr">→</span></a></div>
+    <p class="fine" style="margin-top:16px">One-time payment. Instant download. <span class="ph-text">[Checkout provider to choose]</span></p>
+  </div>
+</section>
+
+<section>
+  <div class="narrow">
+    <details open><summary>Which apps does it work with?</summary><p class="ph-text">[List the apps: e.g. Premiere Pro, Final Cut, DaVinci Resolve, CapCut, Lightroom]</p></details>
+    <details><summary>Do I need a pro camera?</summary><p>No. The kit works on phone and action camera footage.</p></details>
+    <details><summary>How do I get it?</summary><p>Right after payment you get a download link by email.</p></details>
+  </div>
+</section>
+
+<section>
+  <div class="narrow">
+    <div class="head"><span class="label">Not ready to buy?</span><h2>Start with the free masterclass.<span class="it">Jay, one session, your time.</span></h2></div>
+    <div class="btns"><a class="btn ghost" href="masterclass.html">Save my free seat <span class="arr">→</span></a></div>
+  </div>
+</section>
+
+<footer>
+  <span class="label">© 2026 The Creator Lab · Jay Alvarrez</span>
+  <a class="label" href="index.html">The Creator Lab</a>
+</footer>
+
+<script>
+// Countdown to local midnight (decision 21: permanent "ends tonight").
+function tick(){
+  const n=new Date(),m=new Date(n);m.setHours(24,0,0,0);
+  const s=Math.floor((m-n)/1e3),p=v=>String(v).padStart(2,'0');
+  const t=p(Math.floor(s/3600))+':'+p(Math.floor(s%3600/60))+':'+p(s%60);
+  document.getElementById('cd').textContent=t;document.getElementById('cd2').textContent=t;
+}
+tick();setInterval(tick,1000);
+</script>
+<script src="preview.js"></script>
+</body>
+</html>

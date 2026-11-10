@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Creator Lab — Jay Alvarrez</title>
+<title>The Creator Lab · Jay Alvarrez</title>
 <meta name="description" content="The Creator Lab: a 12-week coached program by Jay Alvarrez for adventure, travel and sports creators. Live more adventures, then turn them into a living.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,8 +128,12 @@ nav .btn{padding:12px 20px;font-size:14px}
 .card li{padding:13px 0;border-top:1px solid var(--line);font-size:15px;color:#cfcac2;display:flex;gap:12px}
 .card li::before{content:"→";font-family:var(--mono);color:var(--sky);font-size:13px;padding-top:2px}
 .card.feat{background:linear-gradient(160deg,#16222a 0%,var(--bg2) 60%);border-color:#24343d}
-.note{margin-top:28px;display:flex;gap:16px;align-items:baseline;color:var(--mute);font-size:15px}
-.note b{font:600 28px var(--sans);color:var(--ink);letter-spacing:-.03em}
+.value{margin-top:clamp(56px,8vw,96px)}
+.value table{width:100%;border-collapse:collapse;margin-top:24px;font-size:16px}
+.value td{padding:16px 0;border-top:1px solid var(--line);color:#cfcac2;vertical-align:top}
+.value td:last-child{text-align:right;padding-left:24px;white-space:nowrap;font-weight:500;color:var(--ink)}
+.value td b{color:var(--sky);font-weight:500}
+.value tr.total td{border-top:1px solid var(--ink);font:800 clamp(22px,2.4vw,30px)/1.1 var(--sans);letter-spacing:-.03em;color:var(--ink);padding-top:20px}
 @media (max-width:960px){.cards{grid-template-columns:1fr}.card{min-height:0}}
 
 /* path */
@@ -151,16 +155,29 @@ nav .btn{padding:12px 20px;font-size:14px}
 @media (max-width:860px){.steps{grid-template-columns:1fr 1fr}.steps > div:nth-child(3){border-left:0;padding-left:0}.steps > div:nth-child(n+3){border-top:1px solid var(--line)}.routes{grid-template-columns:1fr}.route{min-height:420px}}
 
 /* ladder */
-.ladder{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:end}
+.ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:end}
 .rung{border:1px solid var(--line);border-radius:6px;padding:28px 24px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
-.rung:nth-child(1){min-height:280px}.rung:nth-child(2){min-height:340px}.rung:nth-child(3){min-height:420px;background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.rung:nth-child(1){min-height:300px}.rung:nth-child(2){min-height:350px}.rung:nth-child(3){min-height:400px}
+.rung.core{min-height:460px;background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .rung .label{margin-bottom:auto}
-.rung:nth-child(3) .label{color:#55524d}
+.rung.core .label{color:#55524d}
 .rung h3{font-size:30px;font-weight:800;letter-spacing:-.03em}
 .rung p{font-size:15px;color:#a9a59f}
-.rung:nth-child(3) p{color:#3b3935}
+.rung.core p{color:#3b3935}
 .rung .it{font-size:19px;color:var(--mute)}
-.rung:nth-child(3) .it{color:#55524d}
+.rung.core .it{color:#55524d}
+.rung .price{font:600 18px var(--sans);color:var(--ink);letter-spacing:-.02em}
+.rung .price s{color:var(--mute);font-weight:400;margin-right:6px}
+.rung .go{margin-top:8px;padding-top:14px;border-top:1px solid var(--line);font:600 14px var(--sans);color:var(--sky)}
+.rung.core .price{color:var(--bg)}
+.rung.core .go{color:var(--bg);border-color:#cfcac2}
+@media (max-width:1060px){.ladder{grid-template-columns:1fr 1fr}}
+
+/* testimonials (placeholders until content is collected) */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+/* deliberately plain so placeholders stand out from the design (same rule as styles.css) */
+.ph{display:block;padding:16px;border:1px solid #ff8a00;background:none;color:#fff;font:400 15px/1.45 Arial,Helvetica,sans-serif}
+@media (max-width:860px){.quotes{grid-template-columns:1fr}}
 
 @media (max-width:560px){.ladder{grid-template-columns:1fr}.rung{min-height:0!important}.rung .label{margin-bottom:24px}}
 
@@ -191,12 +208,7 @@ details p{color:#a9a59f;padding:0 0 28px;max-width:60ch}
 .apply .wrap{position:relative;z-index:2;width:100%;min-width:0}
 .apply h2{font-size:clamp(52px,9vw,140px)}
 .apply .row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:end;margin-top:48px}
-form{display:flex;gap:8px;background:rgba(17,17,19,.8);border:1px solid #2c2c30;border-radius:999px;padding:6px;backdrop-filter:blur(10px)}
-form input{flex:1;min-width:0;background:none;border:0;color:var(--ink);font:400 16px var(--sans);padding:0 20px;outline:none}
-form input::placeholder{color:#77746f}
-form .btn{padding:16px 24px}
-.ok{display:none;color:var(--sky);font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;margin-top:14px}
-.ok.show{display:block}
+.apply .btns{display:flex;gap:12px;flex-wrap:wrap}
 @media (max-width:860px){.apply .row{grid-template-columns:minmax(0,1fr)}}
 
 footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
@@ -223,7 +235,7 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
     <a class="l" href="#inside">Inside</a>
     <a class="l" href="#path">The path</a>
     <a class="l" href="#faq">FAQ</a>
-    <a class="btn solid" href="#apply">Apply</a>
+    <a class="btn solid" href="apply.html">Apply</a>
   </div>
 </nav>
 
@@ -235,8 +247,8 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
       <h1>Live more adventures.<span class="it">Then turn them into a living.</span></h1>
       <p class="lead" style="margin-top:28px">A 12-week coached program by Jay Alvarrez for adventure, travel and sports creators. Learn to film content nobody can scroll past, and turn it into income.</p>
       <div class="cta">
-        <a class="btn solid" href="#apply">Apply to the Lab <span class="arr">→</span></a>
-        <a class="btn ghost" href="#apply">Join the free challenge</a>
+        <a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a>
+        <a class="btn ghost" href="masterclass.html">Watch the free masterclass</a>
       </div>
     </div>
     <div class="stats">
@@ -290,7 +302,7 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
         </div>
       </div>
     </div>
-    <div class="cta-band rv"><p>Want to learn how these get made?</p><div class="btns"><a class="btn solid" href="#apply">Apply to the Lab <span class="arr">→</span></a><a class="btn ghost" href="#apply">Join the free challenge</a></div></div>
+    <div class="cta-band rv"><p>Want to learn how these get made?</p><div class="btns"><a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a><a class="btn ghost" href="masterclass.html">Watch the free masterclass</a></div></div>
   </div>
 </section>
 
@@ -329,8 +341,24 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
         <ul><li>Tracks rising sounds, formats and hashtags in your niche</li><li>Turns them into concepts in your style</li><li>Adds the hook and a shot list</li></ul>
       </div>
     </div>
-    <div class="note rv"><b>65%</b><span>of students in small coached groups finish, against 42% for self-paced courses.</span></div>
-    <div class="cta-band rv"><p>Small groups. Limited spots each cohort.</p><div class="btns"><a class="btn solid" href="#apply">Apply for the next cohort <span class="arr">→</span></a><a class="btn ghost" href="#apply">Join the free challenge</a></div></div>
+    <div class="value rv">
+      <span class="label">Everything you get</span>
+      <table>
+        <tr><td>Weekly live workshops with Jay and the coaches, with replays</td><td>Included</td></tr>
+        <tr><td>Personal video feedback, every week</td><td>Included</td></tr>
+        <tr><td>Small groups per coach</td><td>Included</td></tr>
+        <tr><td>The creator community</td><td>Included</td></tr>
+        <tr><td>Pitch Day</td><td>Included</td></tr>
+        <tr><td>The Concept Engine</td><td>$2,000</td></tr>
+        <tr><td>The Method: Jay's recorded modules</td><td>$1,500</td></tr>
+        <tr><td>The Edit Kit: LUTs, presets, sounds and templates</td><td>$300</td></tr>
+        <tr><td>Media kit and outreach templates</td><td>$700</td></tr>
+        <tr><td><b>Bonus 1</b> · Behind the scenes of one of Jay's shoots, start to finish</td><td>$750</td></tr>
+        <tr><td><b>Bonus 2</b> · Brand deals workshop: how Jay negotiates with his 48 brand partners</td><td>$750</td></tr>
+        <tr class="total"><td>Total value</td><td>Over $6,000</td></tr>
+      </table>
+    </div>
+    <div class="cta-band rv"><p>Start any week. No cohort to wait for.</p><div class="btns"><a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a><a class="btn ghost" href="masterclass.html">Watch the free masterclass</a></div></div>
   </div>
 </section>
 
@@ -367,10 +395,12 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
     <div class="head rv"><span class="label">Ways in</span></div>
     <h2 class="rv" style="margin-bottom:clamp(48px,6vw,80px)">Start where you are.<span class="it">Go as high as you want.</span></h2>
     <div class="ladder">
-      <div class="rung rv"><span class="label">The way in</span><h3>Free Challenge</h3><span class="it">5 live days</span><p>Film and post with Jay over five live days. Free.</p></div>
-      <div class="rung rv"><span class="label">A first win</span><h3>Edit Kit</h3><span class="it">Jay's toolkit</span><p>His LUTs, presets, sounds and templates.</p></div>
-      <div class="rung rv"><span class="label">The core</span><h3>Creator Lab</h3><span class="it">12 coached weeks</span><p>Small groups, weekly feedback, Pitch Day. By application.</p></div>    </div>
-    <div class="cta-band rv"><p>Not sure where to start? Start free.</p><div class="btns"><a class="btn solid" href="#apply">Apply to the Lab <span class="arr">→</span></a><a class="btn ghost" href="#apply">Join the free challenge</a></div></div>
+      <div class="rung rv"><span class="label">The way in</span><h3>Free Masterclass</h3><span class="it">Recorded by Jay</span><p>Jay's method in one session, at the time you choose.</p><p class="price">Free</p><a class="go" href="masterclass.html">Save my seat <span class="arr">→</span></a></div>
+      <div class="rung rv"><span class="label">A first win</span><h3>Edit Kit</h3><span class="it">Jay's toolkit</span><p>His LUTs, presets, sounds and templates.</p><p class="price"><s>$97</s> $57</p><a class="go" href="edit-kit.html">Get the Edit Kit <span class="arr">→</span></a></div>
+      <div class="rung rv"><span class="label">Ideas on demand</span><h3>Concept Engine</h3><span class="it">Monthly plan</span><p>Concepts, hooks and shot lists for your niche.</p><p class="price">From $29 / month</p><a class="go" href="concept-engine.html">See the plans <span class="arr">→</span></a></div>
+      <div class="rung core rv"><span class="label">The core</span><h3>Creator Lab</h3><span class="it">12 coached weeks</span><p>Small groups, weekly feedback, Pitch Day.</p><p class="price">By application</p><a class="go" href="apply.html">Apply <span class="arr">→</span></a></div>
+    </div>
+    <div class="cta-band rv"><p>Not sure where to start? Start with the free masterclass.</p><div class="btns"><a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a><a class="btn ghost" href="masterclass.html">Watch the free masterclass</a></div></div>
   </div>
 </section>
 
@@ -390,7 +420,20 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
         <tr><td>Getting paid</td><td>Not covered</td><td>Media kit, outreach templates and Pitch Day</td></tr>
       </table>
     </div>
-    <div class="cta-band rv"><p>Stop scrolling past other people’s adventures.</p><div class="btns"><a class="btn solid" href="#apply">Apply to the Lab <span class="arr">→</span></a><a class="btn ghost" href="#apply">Join the free challenge</a></div></div>
+    <div class="cta-band rv"><p>Stop scrolling past other people’s adventures.</p><div class="btns"><a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a><a class="btn ghost" href="masterclass.html">Watch the free masterclass</a></div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS: placeholders. Replace with real quotes from creators around Jay (decision 28). Never invent these. -->
+<section id="stories">
+  <div class="wrap">
+    <div class="head rv"><span class="label">Creators around Jay</span></div>
+    <h2 class="rv" style="margin-bottom:clamp(48px,6vw,80px)">Filmed with Jay.<span class="it">Coached by Jay.</span></h2>
+    <div class="quotes">
+      <div class="ph rv">[Testimonial 1 to collect: a creator Jay has helped or filmed with. Quote, name, @handle, niche.]</div>
+      <div class="ph rv">[Testimonial 2 to collect: quote, name, @handle, niche.]</div>
+      <div class="ph rv">[Testimonial 3 to collect: quote, name, @handle, niche.]</div>
+    </div>
   </div>
 </section>
 
@@ -402,8 +445,8 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
       <details open><summary>Do I need to quit my job?</summary><p>No. The Lab is built to run alongside a job or studies. Nobody has to quit to begin.</p></details>
       <details><summary>Do I need a big audience to join?</summary><p>No. The UGC path gets you paid by brands for content they use in their own ads, with no following required.</p></details>
       <details><summary>What gear do I need?</summary><p>A phone or an action camera is enough to start. Students also get gear perks through Jay's camera partners.</p></details>
-      <details><summary>Why is it by application?</summary><p>Groups are small so every student gets real feedback from a coach. A short call makes sure the Lab is the right fit. Not ready yet? A self-paced version is offered after the call.</p></details>
-      <details><summary>How much does it cost?</summary><p>Pricing and cohort dates are shared on your application call. The free challenge and the Edit Kit are the easiest ways to start.</p></details>
+      <details><summary>Why is it by application?</summary><p>Groups are small so every student gets real feedback from a coach. A short call makes sure the Lab is the right fit. Not ready yet? On the call we offer the self-paced version: the Concept Engine top plan at $97 a month, with the tool, the Method and the Edit Kit.</p></details>
+      <details><summary>How much does it cost?</summary><p>Pricing is shared on your application call. The free masterclass and the Edit Kit are the easiest ways to start.</p></details>
       <details><summary>Will I make money?</summary><p>We promise reachable steps, not income. The Lab gives you the craft, the system and the pitch; results depend on the work you put in.</p></details>
     </div>
   </div>
@@ -413,18 +456,11 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
 <section class="apply" id="apply">
   <img src="assets/moto-sunset.jpg" alt="Riding dirt bikes on a beach at sunset" loading="lazy">
   <div class="wrap">
-    <span class="label rv">The Creator Lab · Next cohort</span>
+    <span class="label rv">The Creator Lab</span>
     <h2 class="rv" style="margin-top:24px">Your next adventure<span class="it">starts here.</span></h2>
     <div class="row">
-      <p class="lead rv">Join the waitlist for the next cohort and the free 5-day challenge. Applications open to the waitlist first.</p>
-      <div class="rv">
-        <!-- TODO: point action at the real CRM / email tool endpoint -->
-        <form id="wl" action="#" method="post">
-          <input type="email" name="email" required placeholder="Your email" aria-label="Email address" autocomplete="email">
-          <button class="btn solid" type="submit">Apply <span class="arr">→</span></button>
-        </form>
-        <div class="ok" id="ok" role="status">You're on the list. Watch your inbox.</div>
-      </div>
+      <p class="lead rv">Apply in a few minutes and book your call with the team. Not ready yet? Start with Jay's free masterclass.</p>
+      <div class="btns rv"><a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a><a class="btn ghost" href="masterclass.html">Watch the free masterclass</a></div>
     </div>
   </div>
 </section>
@@ -439,7 +475,7 @@ const nav=document.getElementById('nav');
 addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40),{passive:true});
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');e.target.querySelectorAll('[data-w]').forEach(b=>b.style.width=b.dataset.w+'%');io.unobserve(e.target)}),{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-document.getElementById('wl').addEventListener('submit',e=>{e.preventDefault();e.target.style.display='none';document.getElementById('ok').classList.add('show')});
 </script>
+<script src="preview.js"></script>
 </body>
 </html>
