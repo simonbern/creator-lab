@@ -3,15 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Creator Lab by Jay Alvarrez</title>
-<meta name="description" content="The Creator Lab: a 12-week coached program by Jay Alvarrez for adventure, travel and sports creators. Live more adventures, then turn them into a living.">
+<title>Omertá Creator Lab</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="The Omertá Creator Lab: twelve weeks with Jay Alvarrez and the Omertá team for adventure, travel, sports and lifestyle creators.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#0a0a0b; --bg2:#111113; --ink:#f2efe9; --mute:#8c8a86; --line:#232326; --sky:#7cc4e4;
-  --sans:"Inter Tight",system-ui,sans-serif; --serif:"Instrument Serif",Georgia,serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+  --sans:"Inter Tight",system-ui,sans-serif; --serif:var(--sans); --mono:var(--sans);
   --pad:clamp(20px,5vw,72px);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -21,14 +22,12 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 a{color:inherit;text-decoration:none}
 
 /* type system, lifted from the media kit */
-.label{font:500 11px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--mute)}
+.label{font:400 14px/1.4 var(--sans);color:var(--mute)}
 .label b{color:var(--sky);font-weight:500}
 h1,h2,h3{font-family:var(--sans);font-weight:800;letter-spacing:-.035em;line-height:.95}
 h1{font-size:clamp(56px,10vw,148px)}
 h2{font-size:clamp(40px,6vw,84px)}
 h3{font-size:22px;letter-spacing:-.02em;line-height:1.15;font-weight:600}
-.it{display:block;font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em;color:#cfcac2}
-h2 .it{font-size:.92em;line-height:1}
 p.lead{font-size:clamp(17px,1.5vw,20px);color:#c9c5be;max-width:46ch}
 .mute{color:var(--mute)}
 
@@ -48,9 +47,9 @@ section{padding:clamp(80px,12vw,160px) var(--pad);border-top:1px solid var(--lin
 nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad);background:linear-gradient(180deg,rgba(10,10,11,.6),transparent);transition:background .3s,backdrop-filter .3s}
 nav.solid{background:rgba(10,10,11,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 nav .brand{font:800 15px/1 var(--sans);letter-spacing:-.01em}
-nav .brand span{font:400 italic 17px var(--serif);color:var(--mute);margin-left:6px}
+nav .brand span{font:400 15px var(--sans);color:var(--mute);margin-left:8px}
 nav .links{display:flex;gap:32px;align-items:center}
-nav .links a.l{font:500 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:#bdb9b2}
+nav .links a.l{font:500 14px/1 var(--sans);color:#bdb9b2}
 nav .links a.l:hover{color:var(--ink)}
 nav .btn{padding:12px 20px;font-size:14px}
 @media (max-width:860px){nav .links a.l{display:none}}
@@ -59,7 +58,6 @@ nav .btn{padding:12px 20px;font-size:14px}
 .hero{min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border:0;padding:0}
 .hero .copy{padding:140px var(--pad) 56px;display:flex;flex-direction:column;justify-content:center;gap:56px;position:relative;z-index:2}
 .hero h1{font-size:clamp(48px,6.2vw,108px)}
-.hero h1 .it{font-size:.62em;margin-top:.12em;color:#d8d3cb}
 .hero .media{position:relative;overflow:hidden}
 .hero .media::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,rgba(10,10,11,.35) 22%,transparent 50%);z-index:1}
 .hero .media img{transform:scale(1.06);animation:drift 18s ease-out forwards}
@@ -95,13 +93,30 @@ nav .btn{padding:12px 20px;font-size:14px}
 
 /* program */
 .program{background:var(--bg2)}
-.promise{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:end}
-.promise .q{font:400 italic clamp(36px,4.6vw,64px)/1.02 var(--serif);letter-spacing:-.01em}
 .three{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:clamp(56px,8vw,96px)}
 .three > div{padding:32px 32px 0 0}
 .three > div + div{padding-left:32px}
 .three p{color:#a9a59f;margin-top:12px}
-@media (max-width:860px){.promise,.three{grid-template-columns:1fr}.three > div + div{padding-left:0;margin-top:32px}}
+
+
+/* omerta */
+.split2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:start}
+.body{color:#c9c5be;font-size:18px;max-width:52ch}
+.body + .body{margin-top:16px}
+@media (max-width:860px){.split2{grid-template-columns:1fr}}
+
+/* jay story */
+.jay .big{font:700 clamp(24px,2.6vw,34px)/1.2 var(--sans);letter-spacing:-.02em;margin-top:24px;max-width:28ch}
+.timeline{list-style:none;margin-top:40px;display:grid;gap:18px}
+.timeline li{display:grid;grid-template-columns:72px 1fr;gap:16px;color:#c9c5be}
+.timeline b{color:var(--sky);font-weight:600}
+
+/* program blocks */
+.blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px);margin-top:clamp(48px,6vw,80px)}
+.blocks .wk{color:var(--sky);font-size:15px;font-weight:500}
+.blocks h3{font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-.03em;margin:10px 0 18px}
+.blocks ul{list-style:none;display:grid;gap:10px;color:#c9c5be}
+@media (max-width:860px){.blocks{grid-template-columns:1fr}}
 
 /* inside */
 .value{margin-top:clamp(56px,8vw,96px)}
@@ -164,9 +179,9 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
 
 /* cta band between sections */
 .cta-band{display:flex;justify-content:space-between;align-items:center;gap:24px 40px;flex-wrap:wrap;margin-top:clamp(56px,8vw,96px)}
-.cta-band p{font:400 italic clamp(26px,2.8vw,38px)/1.1 var(--serif);color:#d8d3cb;max-width:22ch}
+.cta-band p{font:600 clamp(22px,2.4vw,30px)/1.2 var(--sans);letter-spacing:-.02em;color:#d8d3cb;max-width:26ch}
 .cta-band .btns{display:flex;gap:12px;flex-wrap:wrap}
-.step{font-size:22px;color:var(--sky);margin-bottom:20px}
+.step{display:block;font-size:15px;font-weight:500;color:var(--sky);margin-bottom:14px}
 .steps .horizon .step{color:var(--mute)}
 
 /* reveal */
@@ -178,11 +193,11 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
 <body>
 
 <nav id="nav">
-  <a href="#top" class="brand">JAY ALVARREZ<span>Creator Lab</span></a>
+  <a href="#top" class="brand">OMERTÁ<span>Creator Lab</span></a>
   <div class="links">
-    <a class="l" href="#program">Program</a>
-    <a class="l" href="#inside">Inside</a>
-    <a class="l" href="#path">The path</a>
+    <a class="l" href="#omerta">Omertá</a>
+    <a class="l" href="#jay">Jay</a>
+    <a class="l" href="#program">The 12 weeks</a>
     <a class="l" href="#faq">FAQ</a>
     <a class="btn solid" href="apply.html">Apply</a>
   </div>
@@ -192,25 +207,25 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
 <header class="hero" id="top">
   <div class="copy">
     <div>
-      <h1>Live more adventures.<span class="it">Then turn them into a living.</span></h1>
-      <p class="lead" style="margin-top:28px">A 12-week coached program by Jay Alvarrez for adventure, travel and sports creators. Learn to film content people stop scrolling for, and turn it into income.</p>
+      <h1>The Omertá Creator Lab</h1>
+      <p class="lead" style="margin-top:28px">Twelve weeks with Jay Alvarrez and the Omertá team. We teach adventure, travel, sports and lifestyle creators how we film, how we grow and how we get paid by brands.</p>
       <div class="cta">
         <a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a>
-        
       </div>
     </div>
   </div>
   <div class="media"><img src="assets/skydive-borabora.jpg" alt="Jay Alvarrez in freefall above Bora Bora's lagoon"></div>
 </header>
 
-<!-- WHY -->
-<section class="why">
+<!-- OMERTA -->
+<section class="why" id="omerta">
   <div class="wrap">
-    <h2 class="rv">Get outside.<span class="it">Live a life bigger than a desk.</span></h2>
-    <div class="grid rv" style="margin-top:clamp(48px,6vw,80px)">
-      <div><h3>Explore</h3><p>See the world and spend your days outdoors.</p></div>
-      <div><h3>Document</h3><p>Film every adventure like a pro, starting with the very next one.</p></div>
-      <div><h3>Grow</h3><p>Build an audience along the way, and let it open doors to brands.</p></div>
+    <div class="split2">
+      <h2 class="rv">A private network for people living outside the norm.</h2>
+      <div class="rv">
+        <p class="body">Omertá is the group Jay Alvarrez and Alex Smith started for founders, athletes and creatives who want more from life than the usual path. Members surf, jump, build companies and travel together.</p>
+        <p class="body">Everything we do gets filmed, and that content is how Omertá grew. The Creator Lab is where we pass that skill on, to members and to creators who want to work at that level.</p>
+      </div>
     </div>
     <div class="strip rv">
       <figure><img src="assets/freefall-duo.jpg" alt="Two skydivers upside down above a tepui" loading="lazy"></figure>
@@ -226,26 +241,44 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
     <div class="grid">
       <figure class="photo rv"><img src="assets/portrait-robe.jpg" alt="Portrait of Jay Alvarrez on a boat" loading="lazy"></figure>
       <div>
-        <h2 class="rv">Jay Alvarrez<span class="it">Athlete. Filmmaker. Self&#8209;taught.</span></h2>
-        <p class="bio rv">Raised in Hawaii, Jay left school at 15 and taught himself everything. Fifteen years later he has filmed extreme sport all over the world: skydives from balloons, skateboarding above the clouds, surf behind helicopters.</p>
-        <p class="bio rv">He performs, writes and directs the work himself. His videos win on the idea, and that method can be taught. The Creator Lab is where he teaches it.</p>
+        <h2 class="rv">Jay Alvarrez</h2>
+        <p class="big rv">Twelve years making content. More than $3 million earned from it.</p>
+        <p class="bio rv">Jay grew up in Hawaii and started filming his friends surfing on the North Shore with a borrowed camera. He has had to reinvent himself more than once since then, and each time the work got bigger.</p>
+        <ol class="timeline rv">
+          <li><b>2014</b><span>First videos on the North Shore, shot on a GoPro and edited on a laptop.</span></li>
+          <li><b>2016</b><span>His travel films start going around the world. The first brands call.</span></li>
+          <li><b>2019</b><span>He moves into extreme sport: skydiving, balloon jumps, surf behind helicopters.</span></li>
+          <li><b>2022</b><span>Big-concept shoots he writes and directs himself, like skateboarding above the clouds.</span></li>
+          <li><b>2024</b><span>Starts Omertá with Alex Smith.</span></li>
+          <li><b>2026</b><span>Opens the Creator Lab.</span></li>
+        </ol>
       </div>
     </div>
-    <div class="cta-band rv"><p>Want to learn how these get made?</p><div class="btns"><a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a></div></div>
+    <div class="cta-band rv"><p>Learn how these get made.</p><div class="btns"><a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a></div></div>
   </div>
 </section>
 
 <!-- PROGRAM -->
 <section class="program" id="program">
   <div class="wrap">
-    <div class="promise">
-      <h2 class="rv">A coached program.<span class="it">Built around your adventures.</span></h2>
-      <p class="q rv">“Make content people stop scrolling for, and get paid for it.”</p>
-    </div>
-    <div class="three rv">
-      <div><h3>Adventure, travel and sports creators</h3><p>Aspiring and early creators who want to turn what they film into income. You start alongside your job.</p></div>
-      <div><h3>Small coached groups, by application</h3><p>Over 12 weeks you create, grow, then pitch. You publish every week and get personal feedback every week.</p></div>
-      <div><h3>Proof, a system and a pitch</h3><p>A body of published work, your own concept system and a media kit ready for brands.</p></div>
+    <h2 class="rv">Twelve weeks, step by step.</h2>
+    <p class="lead rv" style="margin-top:24px">A mentorship in small groups. You post every week, a coach from the team reviews every video, and Jay runs the live sessions.</p>
+    <div class="blocks rv">
+      <div>
+        <span class="wk">Weeks 1 to 4</span>
+        <h3>Create</h3>
+        <ul><li>Find the idea before you pick up the camera</li><li>Plan a shot list for your next outing</li><li>Film with the gear you already own</li><li>Edit with Jay's own LUTs and presets</li></ul>
+      </div>
+      <div>
+        <span class="wk">Weeks 5 to 8</span>
+        <h3>Grow</h3>
+        <ul><li>Hooks and formats that work in your niche</li><li>A posting rhythm you can keep up</li><li>Ideas every week from the Concept Engine</li><li>Read your numbers and adjust</li></ul>
+      </div>
+      <div>
+        <span class="wk">Weeks 9 to 12</span>
+        <h3>Get paid</h3>
+        <ul><li>Build your media kit</li><li>Find and pitch the right brands</li><li>Price your first deals</li><li>Pitch Day in front of the team</li></ul>
+      </div>
     </div>
   </div>
 </section>
@@ -253,13 +286,13 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
 <!-- INSIDE -->
 <section id="inside">
   <div class="wrap">
-    <h2 class="rv" style="margin-bottom:clamp(48px,6vw,80px)">The method, the coaching,<span class="it">and Jay's own idea tool.</span></h2>
+    <h2 class="rv">Everything you get.</h2>
     <div class="value rv">
       <table>
-        <tr><td>Weekly live workshops with Jay and the coaches, with replays</td><td>Included</td></tr>
+        <tr><td>Weekly live sessions with Jay and the coaches, with replays</td><td>Included</td></tr>
         <tr><td>Personal video feedback, every week</td><td>Included</td></tr>
         <tr><td>Small groups per coach</td><td>Included</td></tr>
-        <tr><td>The creator community</td><td>Included</td></tr>
+        <tr><td>The Omertá creator community</td><td>Included</td></tr>
         <tr><td>Pitch Day</td><td>Included</td></tr>
         <tr><td>The Concept Engine</td><td>$2,000</td></tr>
         <tr><td>The Method: Jay's recorded modules</td><td>$1,500</td></tr>
@@ -276,35 +309,32 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
 <!-- PATH -->
 <section class="path" id="path">
   <div class="wrap">
-    <h2 class="rv" style="margin-bottom:clamp(48px,6vw,80px)">Four steps,<span class="it">told honestly.</span></h2>
+    <h2 class="rv" style="margin-bottom:clamp(48px,6vw,80px)">Where it can take you.</h2>
     <div class="steps rv">
-      <div><span class="it step">First</span><h3>Your first adventure, filmed like a pro</h3></div>
-      <div><span class="it step">Then</span><h3>Your first paid deal with a brand</h3></div>
-      <div><span class="it step">Next</span><h3>Adventures that pay for themselves</h3></div>
-      <div class="horizon"><span class="it step">One day, maybe</span><h3>For some, a full-time career</h3></div>
+      <div><span class="step">First</span><h3>Your first adventure, filmed like a pro</h3></div>
+      <div><span class="step">Then</span><h3>Your first paid deal with a brand</h3></div>
+      <div><span class="step">Next</span><h3>Adventures that pay for themselves</h3></div>
+      <div class="horizon"><span class="step">One day, maybe</span><h3>For some, a full-time career</h3></div>
     </div>
     <p class="disclaim rv">The first three are what the Lab works toward with you. The last one is a horizon to aim for.</p>
-
     <div class="routes">
       <div class="route rv">
         <img src="assets/balloon-trampoline.jpg" alt="Playing ball on a trampoline hung under a hot-air balloon" loading="lazy">
-        <div class="in"><h3>The UGC path</h3><p>Your first income, while your audience is still small. Film adventure content that outdoor brands use in their own ads. Fast, concrete wins while you build.</p></div>
+        <div class="in"><h3>The UGC path</h3><p>Your first income, while your audience is still small. Film adventure content that brands use in their own ads.</p></div>
       </div>
       <div class="route rv">
         <img src="assets/balloon-sunrise.jpg" alt="Sunrise from the edge of a hot-air balloon" loading="lazy" style="object-position:50% 35%">
-        <div class="in"><h3>The premium path</h3><p>Build a personal brand, grow an audience and land paid campaigns. This is where Jay's style and network make the difference.</p></div>
+        <div class="in"><h3>The premium path</h3><p>Build a personal brand, grow an audience and land paid campaigns. This is where Jay's style and the Omertá network make the difference.</p></div>
       </div>
     </div>
   </div>
   <div style="height:clamp(80px,12vw,160px)"></div>
 </section>
 
-
-
 <!-- TESTIMONIALS: placeholders. Replace with real quotes from creators around Jay (decision 28). Never invent these. -->
 <section id="stories">
   <div class="wrap">
-    <h2 class="rv" style="margin-bottom:clamp(48px,6vw,80px)">Filmed with Jay.<span class="it">Coached by Jay.</span></h2>
+    <h2 class="rv" style="margin-bottom:clamp(48px,6vw,80px)">Creators around Omertá.</h2>
     <div class="quotes">
       <div class="ph rv">[Testimonial 1 to collect: a creator Jay has helped or filmed with. Quote, name, @handle, niche.]</div>
       <div class="ph rv">[Testimonial 2 to collect: quote, name, @handle, niche.]</div>
@@ -316,9 +346,10 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
 <!-- FAQ -->
 <section class="faq" id="faq">
   <div class="wrap grid">
-    <div><h2 class="rv">Questions,<span class="it">answered.</span></h2></div>
+    <div><h2 class="rv">Questions.</h2></div>
     <div class="rv">
-      <details open><summary>Do I need to quit my job?</summary><p>The Lab is built to run alongside a job or studies.</p></details>
+      <details open><summary>Who is it for?</summary><p>Adventure, travel, sports and lifestyle creators who want to turn what they film into income. Beginners and early creators are welcome.</p></details>
+      <details><summary>Do I need to quit my job?</summary><p>The Lab is built to run alongside a job or studies.</p></details>
       <details><summary>Do I need a big audience to join?</summary><p>The UGC path gets you paid by brands for content they use in their own ads, whatever the size of your following.</p></details>
       <details><summary>What gear do I need?</summary><p>A phone or an action camera is enough to start. Students also get gear perks through Jay's camera partners.</p></details>
       <details><summary>Why is it by application?</summary><p>Groups are small so every student gets real feedback from a coach. A short call makes sure the Lab is the right fit.</p></details>
@@ -332,7 +363,7 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
 <section class="apply" id="apply">
   <img src="assets/moto-sunset.jpg" alt="Riding dirt bikes on a beach at sunset" loading="lazy">
   <div class="wrap">
-    <h2 class="rv">Your next adventure<span class="it">starts here.</span></h2>
+    <h2 class="rv">Your next adventure starts here.</h2>
     <div class="row">
       <p class="lead rv">Apply in a few minutes and book your call with the team.</p>
       <div class="btns rv"><a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a></div>
@@ -341,8 +372,8 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
 </section>
 
 <footer>
-  <span class="label">© 2026 The Creator Lab, Jay Alvarrez</span>
-  <span class="label"><a href="https://www.instagram.com/jayalvarrez/" target="_blank" rel="noopener" style="color:var(--ink)">@jayalvarrez</a></span>
+  <span class="label">© 2026 Omertá Creator Lab</span>
+  <span class="label"><a href="https://www.instagram.com/omerta/" target="_blank" rel="noopener">@omerta</a> &nbsp; <a href="https://www.instagram.com/jayalvarrez/" target="_blank" rel="noopener">@jayalvarrez</a></span>
 </footer>
 
 <script>
