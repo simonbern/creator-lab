@@ -6,6 +6,7 @@
 <title>Omertá Creator Lab</title>
 <meta name="robots" content="noindex">
 <meta name="description" content="The Omertá Creator Lab: twelve weeks with Jay Alvarrez and the Omertá team for adventure, travel, sports and lifestyle creators.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -46,7 +47,8 @@ section{padding:clamp(80px,12vw,160px) var(--pad);border-top:1px solid var(--lin
 /* nav */
 nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad);background:linear-gradient(180deg,rgba(10,10,11,.6),transparent);transition:background .3s,backdrop-filter .3s}
 nav.solid{background:rgba(10,10,11,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-nav .brand{font:800 15px/1 var(--sans);letter-spacing:-.01em}
+nav .brand{font:800 15px/1 var(--sans);letter-spacing:-.01em;display:flex;align-items:center}
+nav .brand .mark{width:30px;height:auto;margin-right:12px}
 nav .brand span{font:400 15px var(--sans);color:var(--mute);margin-left:8px}
 nav .links{display:flex;gap:32px;align-items:center}
 nav .links a.l{font:500 14px/1 var(--sans);color:#bdb9b2}
@@ -193,7 +195,7 @@ footer{padding:40px var(--pad);border-top:1px solid var(--line);display:flex;jus
 <body>
 
 <nav id="nav">
-  <a href="#top" class="brand">OMERTÁ<span>Creator Lab</span></a>
+  <a href="#top" class="brand"><img src="assets/omerta-o.png" alt="" class="mark">OMERTÁ<span>Creator Lab</span></a>
   <div class="links">
     <a class="l" href="#omerta">Omertá</a>
     <a class="l" href="#jay">Jay</a>

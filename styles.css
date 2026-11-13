@@ -36,7 +36,8 @@ section{padding:clamp(72px,10vw,128px) var(--pad);border-top:1px solid var(--lin
 .btns{display:flex;gap:12px;flex-wrap:wrap}
 
 nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:18px var(--pad);background:rgba(10,10,11,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-nav .brand{font:800 15px/1 var(--sans);letter-spacing:-.01em}
+nav .brand{font:800 15px/1 var(--sans);letter-spacing:-.01em;display:flex;align-items:center}
+nav .brand .mark{width:30px;height:auto;margin-right:12px}
 nav .brand span{font:400 15px var(--sans);color:var(--mute);margin-left:8px}
 nav .btn{padding:12px 20px;font-size:14px}
 
