@@ -15,12 +15,13 @@
 
 <nav><a href="index.html" class="brand"><img src="assets/omerta-o.png" alt="" class="mark">OMERTÁ<span>Creator Lab</span></a></nav>
 
-<section style="border:0">
-  <div class="narrow">
+<main class="page">
+  <div class="pane">
+    <div class="steps" aria-hidden="true"><i class="on"></i><i id="s2"></i></div>
 
     <div id="step1">
       <h1>Apply to the Lab.</h1>
-      <p class="lead" style="margin:24px 0 36px">Five quick questions, then you pick a time for your call with the team.</p>
+      <p class="lead" style="margin-top:24px">Five quick questions, then you pick a time for your call with the team.</p>
       <!-- TODO GoHighLevel: replace with the GHL survey/form. On submit, GHL should show its calendar (step 2). -->
       <form class="form" id="app">
         <div class="row2">
@@ -63,17 +64,18 @@
 
     <div id="step2" hidden>
       <h1>Pick a time for your call.</h1>
-      <p class="lead" style="margin:24px 0 36px">A short call with the team about your content and your goals.</p>
+      <p class="lead" style="margin:24px 0 40px">A short call with the team about your content and your goals.</p>
       <!-- TODO GoHighLevel: embed the GHL calendar here, set to redirect to booked.html after booking. -->
       <div class="ph video">[GoHighLevel booking calendar goes here]</div>
       <p class="fine" style="margin-top:20px"><a class="btn ghost" href="booked.html" style="padding:10px 16px;font-size:13px">[Preview only] Simulate a booking</a></p>
     </div>
   </div>
-</section>
+  <figure class="side"><img src="assets/balloon-sunrise.jpg" alt="Sunrise from the edge of a hot-air balloon" style="object-position:50% 55%"></figure>
+</main>
 
 <footer>
   <span class="label">© 2026 Omertá Creator Lab</span>
-  <a class="label" href="index.html">Omertá Creator Lab</a>
+  <a class="label" href="index.html">Back to the Lab</a>
 </footer>
 
 <script>
@@ -81,6 +83,7 @@ document.getElementById('app').addEventListener('submit',e=>{
   e.preventDefault();
   document.getElementById('step1').hidden=true;
   document.getElementById('step2').hidden=false;
+  document.getElementById('s2').classList.add('on');
   scrollTo(0,0);
 });
 </script>
