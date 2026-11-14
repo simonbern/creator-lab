@@ -35,7 +35,6 @@ a{color:inherit;text-decoration:none}
 
 /* film grain over everything, very light */
 body::after{content:"";position:fixed;inset:0;z-index:30;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.bw img{filter:grayscale(1) contrast(1.08)}
 
 /* type */
 h1,h2,h3{font-family:var(--font);font-weight:800;line-height:1;text-wrap:balance}
@@ -76,14 +75,21 @@ nav .btn{padding:13px 22px;font-size:14px}
 
 /* hero: full-bleed photo, copy anchored bottom-left */
 .hero{position:relative;min-height:100dvh;display:flex;align-items:flex-end;padding:0 var(--pad) clamp(40px,6vw,80px);overflow:hidden}
-.hero > img{position:absolute;inset:0;object-position:62% 40%;transform:scale(1.08);animation:settle 2.4s var(--ease) forwards}
+.hero > img{position:absolute;top:0;bottom:0;left:26%;width:74%;object-position:54% 42%;transform:scale(1.06);transform-origin:60% 45%;animation:settle 2.4s var(--ease) forwards}
 @keyframes settle{to{transform:scale(1)}}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,11,10,.55) 0%,rgba(12,11,10,0) 22%),linear-gradient(0deg,rgba(12,11,10,.92) 0%,rgba(12,11,10,.45) 38%,rgba(12,11,10,0) 70%),linear-gradient(90deg,rgba(12,11,10,.55),rgba(12,11,10,0) 55%)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,11,10,.55) 0%,rgba(12,11,10,0) 20%),linear-gradient(0deg,rgba(12,11,10,.7) 0%,rgba(12,11,10,0) 30%),linear-gradient(90deg,var(--bg) 26%,rgba(12,11,10,.6) 36%,rgba(12,11,10,0) 52%)}
 .hero .inner{position:relative;z-index:1;width:100%;max-width:1360px;margin:0 auto}
 .hero h1{font-size:clamp(38px,5.4vw,88px)}
 .hero h1 span{display:block;color:var(--sand)}
-.hero .side{display:grid;gap:30px;justify-items:start;margin-top:32px;max-width:520px}
-@media (max-width:900px){.hero > img{object-position:70% 40%}}
+.hero .inner > *{max-width:min(520px,38vw)}
+.hero .side{display:grid;gap:30px;justify-items:start;margin-top:32px}
+@media (max-width:900px){
+  .hero{display:block;min-height:0;padding:0}
+  .hero > img{position:relative;left:0;width:100%;height:62svh;object-position:54% 42%}
+  .hero::after{bottom:auto;height:62svh;background:linear-gradient(180deg,rgba(12,11,10,.55) 0%,rgba(12,11,10,0) 22%),linear-gradient(0deg,var(--bg) 0%,rgba(12,11,10,0) 28%)}
+  .hero .inner{padding:8px var(--pad) 56px}
+  .hero .inner > *{max-width:none}
+}
 
 /* omerta: statement + two photos */
 .statement{align-items:start}
@@ -230,7 +236,7 @@ footer .soc{display:flex;gap:24px}
       </div>
     </div>
     <div class="collage">
-      <figure class="a bw rv"><img src="assets/freefall-duo.jpg" alt="Two skydivers upside down above a tepui" loading="lazy"></figure>
+      <figure class="a rv"><img src="assets/freefall-duo.jpg" alt="Two skydivers upside down above a tepui" loading="lazy"></figure>
       <figure class="b rv" style="--i:1"><img src="assets/balloon-sunrise.jpg" alt="Sunrise from the edge of a hot-air balloon" loading="lazy" style="object-position:50% 55%"></figure>
     </div>
   </div>
@@ -239,7 +245,7 @@ footer .soc{display:flex;gap:24px}
 <!-- JAY -->
 <section class="jay" id="jay">
   <div class="wrap grid g2">
-    <figure class="photo bw rv"><img src="assets/portrait-robe.jpg" alt="Portrait of Jay Alvarrez on a boat" loading="lazy"></figure>
+    <figure class="photo rv"><img src="assets/portrait-robe.jpg" alt="Portrait of Jay Alvarrez on a boat" loading="lazy"></figure>
     <div>
       <h2 class="rv">Jay Alvarrez</h2>
       <p class="big rv" style="--i:1">Twelve years making content. More than $3 million earned from it.</p>
@@ -336,11 +342,11 @@ footer .soc{display:flex;gap:24px}
       </ol>
     </div>
     <div class="routes">
-      <div class="route bw rv">
-        <img src="assets/sky-skate.jpg" alt="Skateboarding on a ramp hung above the clouds" loading="lazy">
+      <div class="route rv">
+        <img src="assets/balloon-ledge.jpg" alt="Sitting on the edge of a hot-air balloon basket at sunrise" loading="lazy">
         <div class="inner"><h3>The UGC path</h3><p>Your first income, while your audience is still small. Film adventure content that brands use in their own ads.</p></div>
       </div>
-      <div class="route bw rv" style="--i:1">
+      <div class="route rv" style="--i:1">
         <img src="assets/balloon-trampoline.jpg" alt="Playing ball on a trampoline hung under a hot-air balloon" loading="lazy">
         <div class="inner"><h3>The premium path</h3><p>Build a personal brand, grow an audience and land paid campaigns. This is where Jay's style and the Omertá network make the difference.</p></div>
       </div>
