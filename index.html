@@ -33,10 +33,15 @@ a{color:inherit;text-decoration:none}
 .skip{position:absolute;left:-999px;top:12px;z-index:50;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:6px}
 .skip:focus{left:12px}
 
+/* film grain over everything, very light */
+body::after{content:"";position:fixed;inset:0;z-index:30;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.bw img{filter:grayscale(1) contrast(1.08)}
+
 /* type */
-h1,h2,h3{font-family:var(--font);font-stretch:72%;font-weight:800;letter-spacing:-.02em;line-height:.92;text-wrap:balance}
-h1{font-size:clamp(64px,11vw,184px)}
-h2{font-size:clamp(44px,6.4vw,104px)}
+h1,h2,h3{font-family:var(--font);font-weight:800;line-height:1;text-wrap:balance}
+h1,h2{font-stretch:125%;text-transform:uppercase;letter-spacing:-.01em}
+h1{font-size:clamp(40px,5.6vw,92px)}
+h2{font-size:clamp(28px,3.6vw,56px);line-height:1.02}
 h3{font-stretch:90%;font-weight:700;font-size:clamp(22px,2vw,28px);line-height:1.1;letter-spacing:-.01em}
 p{text-wrap:pretty}
 .lead{font-size:clamp(18px,1.5vw,21px);line-height:1.55;color:var(--soft);max-width:44ch}
@@ -75,7 +80,7 @@ nav .btn{padding:13px 22px;font-size:14px}
 @keyframes settle{to{transform:scale(1)}}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,11,10,.55) 0%,rgba(12,11,10,0) 22%),linear-gradient(0deg,rgba(12,11,10,.92) 0%,rgba(12,11,10,.45) 38%,rgba(12,11,10,0) 70%),linear-gradient(90deg,rgba(12,11,10,.55),rgba(12,11,10,0) 55%)}
 .hero .inner{position:relative;z-index:1;width:100%;max-width:1360px;margin:0 auto}
-.hero h1{font-size:clamp(56px,7.4vw,124px)}
+.hero h1{font-size:clamp(38px,5.4vw,88px)}
 .hero h1 span{display:block;color:var(--sand)}
 .hero .side{display:grid;gap:30px;justify-items:start;margin-top:32px;max-width:520px}
 @media (max-width:900px){.hero > img{object-position:70% 40%}}
@@ -94,11 +99,11 @@ nav .btn{padding:13px 22px;font-size:14px}
 .jay .grid{align-items:start}
 .jay .photo{aspect-ratio:4/5;overflow:hidden;border-radius:3px;position:sticky;top:110px}
 .jay .photo img{object-position:40% 30%}
-.jay .big{font-stretch:85%;font-weight:700;font-size:clamp(26px,2.6vw,38px);line-height:1.12;letter-spacing:-.015em;margin-top:28px;max-width:22ch}
+.jay .big{font-stretch:100%;font-weight:700;font-size:clamp(26px,2.6vw,38px);line-height:1.12;letter-spacing:-.015em;margin-top:28px;max-width:22ch}
 .jay .body{margin-top:28px}
 .timeline{list-style:none;margin-top:clamp(48px,6vw,72px);display:grid;gap:30px}
 .timeline li{display:grid;grid-template-columns:clamp(80px,9vw,120px) 1fr;gap:20px;align-items:baseline}
-.timeline b{font-stretch:72%;font-weight:800;font-size:clamp(30px,3vw,44px);line-height:1;color:var(--sand);font-variant-numeric:tabular-nums}
+.timeline b{font-stretch:125%;font-weight:800;font-size:clamp(22px,2vw,30px);line-height:1;color:var(--sand);font-variant-numeric:tabular-nums}
 .timeline span{color:var(--soft);max-width:44ch}
 @media (max-width:900px){.jay .photo{position:relative;top:0;aspect-ratio:1}}
 
@@ -109,18 +114,19 @@ nav .btn{padding:13px 22px;font-size:14px}
 .band .inner{position:relative;z-index:1;width:100%;max-width:1360px;margin:0 auto;align-items:end}
 .band .cta{display:grid;gap:28px;justify-items:start}
 .band .acts{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
-.band h2{max-width:12ch}
+.band h2{max-width:14ch}
 
-/* program: rows, not columns */
+/* program: three phases on one 12-week bar */
 .program{background:var(--bg2)}
 .program .top{align-items:end}
-.rows{margin-top:clamp(72px,9vw,130px);display:grid;gap:clamp(64px,8vw,110px)}
-.row{align-items:start}
-.row .wk{display:block;color:var(--sand);font-weight:600;font-size:15px;margin-bottom:18px}
-.row h3{font-stretch:72%;font-weight:800;font-size:clamp(48px,6vw,96px);line-height:.9;letter-spacing:-.02em}
-.row ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:18px 36px;color:var(--soft)}
-
-@media (max-width:560px){.row ul{grid-template-columns:1fr}}
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,3vw,48px) 6px;margin-top:clamp(72px,9vw,130px)}
+.phase .bar{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:22px}
+.phase .bar i{height:6px;border-radius:2px;background:var(--sand)}
+.phase:nth-child(2) .bar i{opacity:.7}.phase:nth-child(3) .bar i{opacity:.45}
+.phase .wk{display:block;color:var(--mute);font-weight:500;font-size:15px}
+.phase h3{font-stretch:125%;text-transform:uppercase;font-size:clamp(22px,2.2vw,32px);margin:12px 0 22px;padding-right:24px}
+.phase ul{list-style:none;display:grid;gap:12px;color:var(--soft);padding-right:24px}
+@media (max-width:900px){.phases{grid-template-columns:1fr;row-gap:56px}}
 
 /* value */
 .value{align-items:start}
@@ -128,14 +134,14 @@ nav .btn{padding:13px 22px;font-size:14px}
 .value td{padding:13px 0;color:var(--soft);vertical-align:top}
 .value td:last-child{text-align:right;padding-left:24px;white-space:nowrap;font-weight:600;color:var(--ink)}
 .value td b{color:var(--sand);font-weight:600}
-.value tr.total td{padding-top:36px;font-stretch:72%;font-weight:800;font-size:clamp(30px,3.4vw,48px);line-height:1;color:var(--ink)}
+.value tr.total td{padding-top:36px;font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:clamp(22px,2.4vw,34px);line-height:1;color:var(--ink)}
 .value .after{margin-top:40px;display:flex;gap:28px;align-items:center;flex-wrap:wrap}
 
 /* path: title left, four steps right */
 .steps{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,4.5vw,64px) clamp(28px,3vw,48px);padding-top:10px}
 @media (max-width:560px){.steps{grid-template-columns:1fr}}
 .steps .when{display:block;color:var(--sand);font-weight:600;font-size:15px;margin-bottom:10px}
-.steps h3{font-stretch:80%;font-weight:700;font-size:clamp(26px,2.4vw,36px);line-height:1.05;hyphens:none}
+.steps h3{font-stretch:100%;font-weight:700;letter-spacing:-.01em;font-size:clamp(26px,2.4vw,36px);line-height:1.05;hyphens:none}
 .steps .horizon h3,.steps .horizon .when{color:var(--mute)}
 .disclaim{margin-top:28px;color:var(--mute);font-size:16px;max-width:34ch}
 
@@ -145,7 +151,7 @@ nav .btn{padding:13px 22px;font-size:14px}
 .route:hover img{transform:scale(1.04)}
 .route::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(12,11,10,.94) 8%,rgba(12,11,10,.3) 55%,rgba(12,11,10,0))}
 .route .inner{position:relative;z-index:1;padding:clamp(28px,3vw,44px)}
-.route h3{font-stretch:72%;font-weight:800;font-size:clamp(36px,3.6vw,56px);line-height:.95;margin-bottom:14px}
+.route h3{font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:clamp(22px,2.2vw,32px);line-height:1.05;margin-bottom:14px}
 .route p{color:var(--soft);max-width:40ch}
 @media (max-width:900px){.routes{grid-template-columns:1fr}}
 
@@ -165,13 +171,15 @@ summary::after{content:"+";font-weight:300;font-size:26px;line-height:1;color:va
 details[open] summary::after{transform:rotate(45deg)}
 details p{color:var(--soft);padding:0 0 28px;max-width:58ch}
 
-/* closing */
-.apply{min-height:100dvh;display:flex;align-items:flex-end;overflow:hidden}
-.apply > img{position:absolute;inset:0}
-.apply::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--bg) 6%,rgba(12,11,10,.4) 50%,rgba(12,11,10,0) 85%)}
-.apply .wrap{position:relative;z-index:1;width:100%}
-.apply h2{font-size:clamp(64px,11vw,184px);max-width:9ch}
-.apply .row2{display:grid;gap:30px;justify-items:start;margin-top:36px;max-width:520px}
+/* closing: sand poster with the black O */
+.apply{background:var(--sand);color:var(--bg);min-height:86dvh;display:flex;align-items:center}
+.apply .wrap{width:100%;align-items:center}
+.apply p{font-size:clamp(18px,1.5vw,21px);color:#3a342c;max-width:40ch}
+.apply .row2{display:grid;gap:30px;justify-items:start;margin-top:32px}
+.apply .o{width:min(100%,520px);height:auto;justify-self:end;filter:blur(.3px)}
+.btn.dark{background:var(--bg);color:var(--ink)}
+.btn.dark:hover{background:#2a2622;transform:translateY(-2px)}
+@media (max-width:900px){.apply .o{justify-self:start;width:60%}}
 
 footer{padding:36px var(--pad);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;color:var(--mute);font-size:14px}
 footer a{transition:color .2s}
@@ -222,8 +230,8 @@ footer .soc{display:flex;gap:24px}
       </div>
     </div>
     <div class="collage">
-      <figure class="a rv"><img src="assets/freefall-duo.jpg" alt="Two skydivers upside down above a tepui" loading="lazy"></figure>
-      <figure class="b rv" style="--i:1"><img src="assets/sky-skate.jpg" alt="Skateboarding on a ramp hung above the clouds" loading="lazy"></figure>
+      <figure class="a bw rv"><img src="assets/freefall-duo.jpg" alt="Two skydivers upside down above a tepui" loading="lazy"></figure>
+      <figure class="b rv" style="--i:1"><img src="assets/balloon-sunrise.jpg" alt="Sunrise from the edge of a hot-air balloon" loading="lazy" style="object-position:50% 55%"></figure>
     </div>
   </div>
 </section>
@@ -231,7 +239,7 @@ footer .soc{display:flex;gap:24px}
 <!-- JAY -->
 <section class="jay" id="jay">
   <div class="wrap grid g2">
-    <figure class="photo rv"><img src="assets/portrait-robe.jpg" alt="Portrait of Jay Alvarrez on a boat" loading="lazy"></figure>
+    <figure class="photo bw rv"><img src="assets/portrait-robe.jpg" alt="Portrait of Jay Alvarrez on a boat" loading="lazy"></figure>
     <div>
       <h2 class="rv">Jay Alvarrez</h2>
       <p class="big rv" style="--i:1">Twelve years making content. More than $3 million earned from it.</p>
@@ -266,18 +274,24 @@ footer .soc{display:flex;gap:24px}
       <h2 class="rv">Twelve weeks, step by step.</h2>
       <p class="lead rv" style="--i:1">A mentorship in small groups. You post every week, a coach from the team reviews every video, and Jay runs the live sessions.</p>
     </div>
-    <div class="rows">
-      <div class="row g2 rv">
-        <h3>Create</h3>
-        <div><span class="wk">Weeks 1 to 4</span><ul><li>Find the idea before you pick up the camera</li><li>Plan a shot list for your next outing</li><li>Film with the gear you already own</li><li>Edit with Jay's own LUTs and presets</li></ul></div>
+    <div class="phases">
+      <div class="phase rv">
+        <div class="bar"><i></i><i></i><i></i><i></i></div>
+        <span class="wk">Weeks 1 to 4</span>
+        <h3>01 Create</h3>
+        <ul><li>Find the idea before you pick up the camera</li><li>Plan a shot list for your next outing</li><li>Film with the gear you already own</li><li>Edit with Jay's own LUTs and presets</li></ul>
       </div>
-      <div class="row g2 rv">
-        <h3>Grow</h3>
-        <div><span class="wk">Weeks 5 to 8</span><ul><li>Hooks and formats that work in your niche</li><li>A posting rhythm you can keep up</li><li>Ideas every week from the Concept Engine</li><li>Read your numbers and adjust</li></ul></div>
+      <div class="phase rv" style="--i:1">
+        <div class="bar"><i></i><i></i><i></i><i></i></div>
+        <span class="wk">Weeks 5 to 8</span>
+        <h3>02 Grow</h3>
+        <ul><li>Hooks and formats that work in your niche</li><li>A posting rhythm you can keep up</li><li>Ideas every week from the Concept Engine</li><li>Read your numbers and adjust</li></ul>
       </div>
-      <div class="row g2 rv">
-        <h3>Get paid</h3>
-        <div><span class="wk">Weeks 9 to 12</span><ul><li>Build your media kit</li><li>Find and pitch the right brands</li><li>Price your first deals</li><li>Pitch Day in front of the team</li></ul></div>
+      <div class="phase rv" style="--i:2">
+        <div class="bar"><i></i><i></i><i></i><i></i></div>
+        <span class="wk">Weeks 9 to 12</span>
+        <h3>03 Get paid</h3>
+        <ul><li>Build your media kit</li><li>Find and pitch the right brands</li><li>Price your first deals</li><li>Pitch Day in front of the team</li></ul>
       </div>
     </div>
   </div>
@@ -322,11 +336,11 @@ footer .soc{display:flex;gap:24px}
       </ol>
     </div>
     <div class="routes">
-      <div class="route rv">
-        <img src="assets/balloon-ledge.jpg" alt="Sitting on the edge of a hot-air balloon basket at sunrise" loading="lazy">
+      <div class="route bw rv">
+        <img src="assets/sky-skate.jpg" alt="Skateboarding on a ramp hung above the clouds" loading="lazy">
         <div class="inner"><h3>The UGC path</h3><p>Your first income, while your audience is still small. Film adventure content that brands use in their own ads.</p></div>
       </div>
-      <div class="route rv" style="--i:1">
+      <div class="route bw rv" style="--i:1">
         <img src="assets/balloon-trampoline.jpg" alt="Playing ball on a trampoline hung under a hot-air balloon" loading="lazy">
         <div class="inner"><h3>The premium path</h3><p>Build a personal brand, grow an audience and land paid campaigns. This is where Jay's style and the Omertá network make the difference.</p></div>
       </div>
@@ -364,13 +378,15 @@ footer .soc{display:flex;gap:24px}
 
 <!-- APPLY -->
 <section class="apply" id="apply">
-  <img src="assets/balloon-sunrise.jpg" alt="Sunrise from the edge of a hot-air balloon" loading="lazy" style="object-position:50% 60%">
-  <div class="wrap">
-    <h2 class="rv">Your next adventure starts here.</h2>
-    <div class="row2">
-      <p class="lead rv" style="--i:1">Apply in a few minutes and book your call with the team.</p>
-      <a class="btn solid rv" style="--i:2" href="apply.html">Apply to the Lab <span class="arr">→</span></a>
+  <div class="wrap g2">
+    <div>
+      <h2 class="rv">Your next adventure starts here.</h2>
+      <div class="row2">
+        <p class="rv" style="--i:1">Apply in a few minutes and book your call with the team.</p>
+        <a class="btn dark rv" style="--i:2" href="apply.html">Apply to the Lab <span class="arr">→</span></a>
+      </div>
     </div>
+    <img class="o rv" style="--i:1" src="assets/omerta-o-dark.png" alt="Omertá">
   </div>
 </section>
 </main>
