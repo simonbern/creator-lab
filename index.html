@@ -374,7 +374,7 @@ footer .soc{display:flex;gap:24px}
       <h2 class="rv">Everything you get.</h2>
       <div class="after rv" style="--i:1"><a class="btn solid" href="apply.html">Apply to the Lab</a><span style="color:var(--mute)">Start any week you want.</span></div>
     </div>
-    <div class="list">
+    <div class="list" data-group>
       <ul class="gets">
         <li class="rv" style="--i:0">Weekly live sessions with Jay and the Omertá team, with replays</li>
         <li class="rv" style="--i:1">Personal video feedback, every week</li>
@@ -386,8 +386,8 @@ footer .soc{display:flex;gap:24px}
         <li class="rv" style="--i:7">Media kit and outreach templates</li>
       </ul>
       <ul class="gets bonus">
-        <li class="rv" style="--i:0"><span><b>Bonus 1</b>Behind the scenes of one of Jay's shoots, start to finish</span></li>
-        <li class="rv" style="--i:1"><span><b>Bonus 2</b>A brand deals workshop on how Jay negotiates with his partners</span></li>
+        <li class="rv" style="--i:8"><span><b>Bonus 1</b>Behind the scenes of one of Jay's shoots, start to finish</span></li>
+        <li class="rv" style="--i:9"><span><b>Bonus 2</b>A brand deals workshop on how Jay negotiates with his partners</span></li>
       </ul>
     </div>
   </div>
@@ -461,8 +461,10 @@ footer .soc{display:flex;gap:24px}
 <script>
 const nav=document.getElementById('nav');
 addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40),{passive:true});
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target)}),{threshold:.12});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+// a [data-group] reveals all its items together, in order (their --i sets the stagger)
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const t=e.target;(t.hasAttribute('data-group')?t.querySelectorAll('.rv'):[t]).forEach(el=>el.classList.add('in'));io.unobserve(t)}),{threshold:.12});
+document.querySelectorAll('[data-group]').forEach(g=>io.observe(g));
+document.querySelectorAll('.rv').forEach(el=>{if(!el.closest('[data-group]'))io.observe(el)});
 </script>
 <script src="preview.js"></script>
 </body>
