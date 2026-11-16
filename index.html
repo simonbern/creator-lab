@@ -199,14 +199,21 @@ summary::after{content:"+";font-weight:300;font-size:26px;line-height:1;color:va
 details[open] summary::after{transform:rotate(45deg)}
 details p{color:var(--soft);padding:0 0 28px;max-width:58ch}
 
-/* closing: sand poster with the black O */
-.apply{background:var(--sand);color:var(--bg);min-height:86dvh;display:flex;align-items:center}
-.apply .wrap{width:100%;align-items:center}
-.apply p{font-size:clamp(18px,1.5vw,21px);color:#3a342c;max-width:40ch}
+/* closing: full-bleed photo with a dark veil */
+.apply{position:relative;min-height:90dvh;display:flex;align-items:flex-end;overflow:hidden}
+.apply > img{position:absolute;top:0;bottom:0;left:30%;width:70%;object-position:55% 45%}
+.apply::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(12,11,10,.85) 0%,rgba(12,11,10,0) 35%),linear-gradient(90deg,var(--bg) 30%,rgba(12,11,10,.6) 40%,rgba(12,11,10,0) 58%)}
+.apply .wrap{position:relative;z-index:1;width:100%}
+.apply p{font-size:clamp(18px,1.5vw,21px);color:var(--soft);max-width:40ch}
 .apply .row2{display:grid;gap:30px;justify-items:start;margin-top:32px}
-.apply .o{width:min(100%,520px);height:auto;justify-self:end;filter:blur(.3px)}
-.btn.dark{color:var(--bg);background-image:linear-gradient(var(--bg),var(--bg))}
-@media (max-width:900px){.apply .o{justify-self:start;width:60%}}
+.apply .wrap > *{max-width:min(520px,38vw)}
+@media (max-width:900px){
+  .apply{display:block;min-height:0;padding:0}
+  .apply > img{position:relative;left:0;width:100%;height:56svh;object-position:45% 40%}
+  .apply::after{bottom:auto;height:56svh;background:linear-gradient(0deg,var(--bg) 0%,rgba(12,11,10,0) 35%)}
+  .apply .wrap{padding:8px var(--pad) 72px}
+  .apply .wrap > *{max-width:none}
+}
 
 footer{padding:36px var(--pad);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;color:var(--mute);font-size:14px}
 footer a{transition:color .2s}
@@ -419,15 +426,13 @@ footer .soc{display:flex;gap:24px}
 
 <!-- APPLY -->
 <section class="apply" id="apply">
-  <div class="wrap g2">
-    <div>
-      <h2 class="rv">Your next adventure starts here.</h2>
-      <div class="row2">
-        <p class="rv" style="--i:1">Apply in a few minutes and book your call with the team.</p>
-        <a class="btn dark rv" style="--i:2" href="apply.html">Apply to the Lab</a>
-      </div>
+  <img src="assets/skydive-earth.jpg" alt="A skydiver upside down above the clouds" loading="lazy">
+  <div class="wrap">
+    <h2 class="rv">Your next adventure starts here.</h2>
+    <div class="row2">
+      <p class="rv" style="--i:1">Apply in a few minutes and book your call with the team.</p>
+      <a class="btn solid rv" style="--i:2" href="apply.html">Apply to the Lab</a>
     </div>
-    <img class="o rv" style="--i:1" src="assets/omerta-o-dark.png" alt="Omertá">
   </div>
 </section>
 </main>
