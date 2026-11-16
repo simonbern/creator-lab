@@ -115,16 +115,6 @@ nav .btn{font-size:12px;padding:8px 0 8px}
 @media (prefers-reduced-motion:reduce){.brands ul{animation:none}}
 @media (max-width:900px){.brands{flex-direction:column;align-items:flex-start;gap:16px;padding-right:0}.brands .track{width:100%}}
 
-/* omerta: statement + two photos */
-.statement{align-items:start}
-.collage{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:clamp(72px,9vw,130px)}
-.collage figure{overflow:hidden;border-radius:3px}
-.collage figure img{transition:transform 1.4s var(--ease)}
-.collage figure:hover img{transform:scale(1.04)}
-.collage .b{position:relative}
-.collage .b img{position:absolute;inset:0}
-.collage .a{grid-row:1;grid-column:2;aspect-ratio:4/5}
-.collage .b{grid-row:1;grid-column:1}
 /* jay */
 .jay .grid{align-items:start}
 .jay .photo{aspect-ratio:4/5;overflow:hidden;border-radius:3px;position:sticky;top:110px}
@@ -248,7 +238,6 @@ footer .soc{display:flex;gap:24px}
   <div class="links">
     <a class="l" href="#jay">Jay</a>
     <a class="l" href="#program">The 12 weeks</a>
-    <a class="l" href="#omerta">Omertá</a>
     <a class="l" href="#faq">FAQ</a>
     <a class="btn solid" href="apply.html">Apply</a>
   </div>
@@ -389,23 +378,6 @@ footer .soc{display:flex;gap:24px}
         <li class="rv" style="--i:8"><span><b>Bonus 1</b>Behind the scenes of one of Jay's shoots, start to finish</span></li>
         <li class="rv" style="--i:9"><span><b>Bonus 2</b>A brand deals workshop on how Jay negotiates with his partners</span></li>
       </ul>
-    </div>
-  </div>
-</section>
-
-<!-- OMERTA -->
-<section id="omerta">
-  <div class="wrap">
-    <div class="statement g2">
-      <h2 class="rv">A private network for people living outside the norm.</h2>
-      <div class="rv" style="--i:1">
-        <p class="body">Omertá is the group Jay Alvarrez and Alex Smith started for founders, athletes and creatives who want more from life than the usual path. Members surf, jump, build companies and travel together.</p>
-        <p class="body">Everything we do gets filmed, and that content is how Omertá grew. The Creator Lab is where we pass that skill on, to members and to creators who want to work at that level.</p>
-      </div>
-    </div>
-    <div class="collage">
-      <figure class="a rv"><img src="assets/freefall-duo.jpg" alt="Two skydivers upside down above a tepui" loading="lazy"></figure>
-      <figure class="b rv" style="--i:1"><img src="assets/balloon-sunrise.jpg" alt="Sunrise from the edge of a hot-air balloon" loading="lazy" style="object-position:50% 55%"></figure>
     </div>
   </div>
 </section>
