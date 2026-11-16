@@ -33,24 +33,23 @@ section{padding:clamp(72px,10vw,140px) var(--pad);position:relative}
 .narrow{max-width:720px;margin:0 auto}
 .head{margin-bottom:clamp(36px,5vw,64px)}
 
-/* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;padding:19px 30px;border-radius:999px;font:600 15px/1 var(--sans);letter-spacing:.01em;transition:transform .25s var(--ease),background .25s,color .25s,border-color .25s;border:0;cursor:pointer}
-.btn.solid{background:var(--ink);color:var(--bg)}
-.btn.solid:hover{background:var(--sand);transform:translateY(-2px)}
-.btn.ghost{background:rgba(241,236,228,.08);color:var(--ink)}
-.btn.ghost:hover{background:rgba(241,236,228,.16)}
-.btn:active{transform:scale(.98)}
-.btn.wide{width:100%}
-.btn .arr{transition:transform .25s var(--ease)}
-.btn:hover .arr{transform:translateX(4px)}
-.btns{display:flex;gap:12px;flex-wrap:wrap}
+/* buttons: editorial link, wide caps with a sand bar that stretches on hover */
+.btn{display:inline-block;padding:6px 0 12px;border:0;border-radius:0;background:linear-gradient(var(--sand),var(--sand)) 0 100%/40% 3px no-repeat;color:var(--ink);font:800 15px/1 var(--sans);font-stretch:125%;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;transition:background-size .35s var(--ease),color .2s}
+.btn:hover{background-size:100% 3px}
+.btn:active{opacity:.75}
+.link{display:inline-block;padding:6px 0 12px;background:linear-gradient(var(--sand),var(--sand)) 0 100%/0 3px no-repeat;font:800 12px/1 var(--sans);font-stretch:125%;text-transform:uppercase;letter-spacing:.06em;color:var(--soft);transition:background-size .35s var(--ease),color .2s}
+.link:hover{background-size:100% 3px;color:var(--ink)}
+.btn.ghost{background-size:0 3px;color:var(--soft)}
+.btn.ghost:hover{background-size:100% 3px;color:var(--ink)}
+.btn.wide{margin-top:8px;justify-self:start;text-align:left}
+.btns{display:flex;gap:28px;flex-wrap:wrap;align-items:center}
 
 /* nav */
 nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:18px max(var(--pad),calc((100% - 1360px) / 2));background:rgba(12,11,10,.82);backdrop-filter:blur(16px)}
 nav .brand{display:flex;align-items:center;font:800 16px/1 var(--sans);font-stretch:110%;letter-spacing:.06em}
 nav .brand .mark{width:30px;height:auto;margin-right:12px}
 nav .brand span{font-weight:400;font-stretch:100%;letter-spacing:0;color:var(--soft);margin-left:10px}
-nav .btn{padding:13px 22px;font-size:14px}
+nav .btn{font-size:12px;padding:8px 0 8px}
 
 /* page with a photo: content left, photo pinned on the right */
 .page{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);min-height:calc(100dvh - 70px)}

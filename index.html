@@ -51,15 +51,12 @@ p{text-wrap:pretty}
 section{padding:clamp(96px,13vw,190px) var(--pad) clamp(110px,15vw,210px);position:relative}
 .wrap{max-width:1360px;margin:0 auto}
 
-/* buttons */
-.btn{display:inline-flex;align-items:center;gap:14px;padding:19px 30px;border-radius:999px;font:600 15px/1 var(--font);letter-spacing:.01em;transition:transform .25s var(--ease),background .25s,color .25s;will-change:transform}
-.btn.solid{background:var(--ink);color:var(--bg)}
-.btn.solid:hover{background:var(--sand);transform:translateY(-2px)}
-.btn:active{transform:translateY(0) scale(.98)}
-.btn .arr{transition:transform .25s var(--ease)}
-.btn:hover .arr{transform:translateX(4px)}
-.link{font-weight:600;border-bottom:1px solid currentColor;padding-bottom:2px;transition:color .2s}
-.link:hover{color:var(--sand)}
+/* buttons: editorial link, wide caps with a sand bar that stretches on hover */
+.btn{display:inline-block;padding:6px 0 12px;border:0;border-radius:0;background:linear-gradient(var(--sand),var(--sand)) 0 100%/40% 3px no-repeat;color:var(--ink);font:800 15px/1 var(--font);font-stretch:125%;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;transition:background-size .35s var(--ease),color .2s}
+.btn:hover{background-size:100% 3px}
+.btn:active{opacity:.75}
+.link{display:inline-block;padding:6px 0 12px;background:linear-gradient(var(--sand),var(--sand)) 0 100%/0 3px no-repeat;font:800 12px/1 var(--font);font-stretch:125%;text-transform:uppercase;letter-spacing:.06em;color:var(--soft);transition:background-size .35s var(--ease),color .2s}
+.link:hover{background-size:100% 3px;color:var(--ink)}
 
 /* nav */
 nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:22px max(var(--pad),calc((100% - 1360px) / 2));transition:background .35s,backdrop-filter .35s,padding .35s}
@@ -70,7 +67,7 @@ nav .brand span{font-weight:400;font-stretch:100%;letter-spacing:0;color:var(--s
 nav .links{display:flex;gap:34px;align-items:center}
 nav .links a.l{font-size:15px;color:var(--soft);transition:color .2s}
 nav .links a.l:hover{color:var(--ink)}
-nav .btn{padding:13px 22px;font-size:14px}
+nav .btn{font-size:12px;padding:8px 0 8px}
 @media (max-width:900px){nav .links a.l{display:none}}
 
 /* hero: full-bleed photo, copy anchored bottom-left */
@@ -183,8 +180,7 @@ details p{color:var(--soft);padding:0 0 28px;max-width:58ch}
 .apply p{font-size:clamp(18px,1.5vw,21px);color:#3a342c;max-width:40ch}
 .apply .row2{display:grid;gap:30px;justify-items:start;margin-top:32px}
 .apply .o{width:min(100%,520px);height:auto;justify-self:end;filter:blur(.3px)}
-.btn.dark{background:var(--bg);color:var(--ink)}
-.btn.dark:hover{background:#2a2622;transform:translateY(-2px)}
+.btn.dark{color:var(--bg);background-image:linear-gradient(var(--bg),var(--bg))}
 @media (max-width:900px){.apply .o{justify-self:start;width:60%}}
 
 footer{padding:36px var(--pad);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;color:var(--mute);font-size:14px}
@@ -220,7 +216,7 @@ footer .soc{display:flex;gap:24px}
     <h1>The Omertá <span>Creator Lab</span></h1>
     <div class="side">
       <p class="lead">Twelve weeks with Jay Alvarrez and the Omertá team. We teach adventure, travel, sports and lifestyle creators how we film, how we grow and how we get paid by brands.</p>
-      <a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a>
+      <a class="btn solid" href="apply.html">Apply to the Lab</a>
     </div>
   </div>
 </header>
@@ -268,7 +264,7 @@ footer .soc{display:flex;gap:24px}
     <h2 class="rv">Learn how these get made.</h2>
     <div class="cta rv" style="--i:1">
       <p class="lead">Every one of Jay's videos started as an idea on paper. In the Lab you learn the whole process with him: the idea, the shot list, the shoot and the edit.</p>
-      <div class="acts"><a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a><a class="link" href="#program">See the 12 weeks</a></div>
+      <div class="acts"><a class="btn solid" href="apply.html">Apply to the Lab</a><a class="link" href="#program">See the 12 weeks</a></div>
     </div>
   </div>
 </div>
@@ -308,7 +304,7 @@ footer .soc{display:flex;gap:24px}
   <div class="wrap value g2">
     <div>
       <h2 class="rv">Everything you get.</h2>
-      <div class="after rv" style="--i:1"><a class="btn solid" href="apply.html">Apply to the Lab <span class="arr">→</span></a><span style="color:var(--mute)">Start any week you want.</span></div>
+      <div class="after rv" style="--i:1"><a class="btn solid" href="apply.html">Apply to the Lab</a><span style="color:var(--mute)">Start any week you want.</span></div>
     </div>
     <table class="rv" style="--i:1">
       <tr><td>Weekly live sessions with Jay and the coaches, with replays</td><td>Included</td></tr>
@@ -389,7 +385,7 @@ footer .soc{display:flex;gap:24px}
       <h2 class="rv">Your next adventure starts here.</h2>
       <div class="row2">
         <p class="rv" style="--i:1">Apply in a few minutes and book your call with the team.</p>
-        <a class="btn dark rv" style="--i:2" href="apply.html">Apply to the Lab <span class="arr">→</span></a>
+        <a class="btn dark rv" style="--i:2" href="apply.html">Apply to the Lab</a>
       </div>
     </div>
     <img class="o rv" style="--i:1" src="assets/omerta-o-dark.png" alt="Omertá">
