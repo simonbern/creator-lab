@@ -71,14 +71,15 @@ nav .btn{font-size:12px;padding:8px 0 8px}
 @media (max-width:900px){nav .links a.l{display:none}}
 
 /* hero: full-bleed photo, copy anchored bottom-left */
-.hero{position:relative;min-height:100dvh;display:flex;align-items:flex-end;padding:0 var(--pad) clamp(40px,6vw,80px);overflow:hidden}
+.hero{position:relative;min-height:100dvh;display:flex;align-items:flex-end;padding:120px var(--pad) clamp(40px,6vw,80px);overflow:hidden}
 .hero > img{position:absolute;top:0;bottom:0;left:26%;width:74%;object-position:54% 42%;transform:scale(1.06);transform-origin:60% 45%;animation:settle 2.4s var(--ease) forwards}
 @keyframes settle{to{transform:scale(1)}}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,11,10,.55) 0%,rgba(12,11,10,0) 20%),linear-gradient(0deg,rgba(12,11,10,.7) 0%,rgba(12,11,10,0) 30%),linear-gradient(90deg,var(--bg) 26%,rgba(12,11,10,.6) 36%,rgba(12,11,10,0) 52%)}
 .hero .inner{position:relative;z-index:1;width:100%;max-width:1360px;margin:0 auto}
-.hero h1{font-size:clamp(38px,5.4vw,88px)}
+.hero h1{font-size:clamp(36px,min(5.4vw,9vh),88px)}
 .hero h1 span{display:block;color:var(--sand)}
 .hero .inner > *{max-width:min(520px,38vw)}
+.hero .inner > .results{max-width:none}
 .hero .side{display:grid;gap:30px;justify-items:start;margin-top:32px}
 @media (max-width:900px){
   .hero{display:block;min-height:0;padding:0}
@@ -89,9 +90,9 @@ nav .btn{font-size:12px;padding:8px 0 8px}
 }
 
 /* hero results */
-.results{list-style:none;display:flex;gap:clamp(24px,3vw,48px);flex-wrap:wrap;margin-top:clamp(32px,4vw,48px)}
+.results{list-style:none;display:flex;gap:clamp(18px,2.4vw,40px);flex-wrap:nowrap;margin-top:clamp(28px,3.4vw,44px)}
 .results li{display:grid;gap:6px}
-.results b{font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:clamp(26px,2.6vw,40px);line-height:1;color:var(--ink)}
+.results b{font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:clamp(22px,min(2.3vw,4.4vh),36px);white-space:nowrap;line-height:1;color:var(--ink)}
 .results span{font-size:14px;color:var(--soft)}
 
 /* brand strip: endless slow scroll, pauses on hover, still for reduced motion */
@@ -270,7 +271,7 @@ footer .soc{display:flex;gap:24px}
 </div>
 
 <!-- PATH -->
-<section class="path" id="path">
+<section class="path" id="path" style="padding-bottom:clamp(40px,5vw,72px)">
   <div class="wrap">
     <div class="g2">
       <div>
@@ -298,7 +299,7 @@ footer .soc{display:flex;gap:24px}
 </section>
 
 <!-- JAY -->
-<section class="jay" id="jay">
+<section class="jay" id="jay" style="padding-top:clamp(56px,6vw,100px)">
   <div class="wrap grid g2">
     <figure class="photo rv"><img src="assets/portrait-robe.jpg" alt="Portrait of Jay Alvarrez on a boat" loading="lazy"></figure>
     <div>
