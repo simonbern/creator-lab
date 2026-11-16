@@ -53,8 +53,13 @@ section{padding:clamp(72px,10vw,140px) var(--pad);position:relative}
 
 /* nav */
 nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:18px max(var(--pad),calc((100% - 1360px) / 2));background:rgba(12,11,10,.82);backdrop-filter:blur(16px)}
-nav .brand{display:flex;align-items:center;font:800 16px/1 var(--sans);font-stretch:110%;letter-spacing:.06em}
-nav .brand span{font-weight:400;font-stretch:100%;letter-spacing:0;color:var(--soft);margin-left:10px}
+/* wordmark: JAY ALVARREZ wide and heavy, CREATOR LAB spread underneath to the same width */
+.brand{display:inline-grid;gap:5px;line-height:1;font:900 22px/1 var(--sans);font-stretch:125%;letter-spacing:.1em;color:var(--ink)}
+.brand span{font-weight:700;font-size:9.5px;letter-spacing:1.48em;margin-right:-1.48em;color:var(--sand);text-transform:uppercase}
+@media (max-width:900px){.brand{font-size:18px}.brand span{font-size:8px;letter-spacing:1.42em;margin-right:-1.42em}}
+footer{align-items:center}
+footer .brand{color:var(--soft)}
+footer .copy{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 nav .btn{font-size:12px;padding:12px 18px;display:inline-block;width:auto}
 
 /* page with a photo: content left, photo pinned on the right */

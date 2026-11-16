@@ -75,8 +75,13 @@ section{padding:var(--s) var(--pad);position:relative}
 /* nav */
 nav{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:22px max(var(--pad),calc((100% - 1360px) / 2));transition:background .35s,backdrop-filter .35s,padding .35s}
 nav.solid{background:rgba(12,11,10,.82);backdrop-filter:blur(16px);padding-top:14px;padding-bottom:14px}
-nav .brand{display:flex;align-items:center;font:800 16px/1 var(--font);font-stretch:110%;letter-spacing:.06em}
-nav .brand span{font-weight:400;font-stretch:100%;letter-spacing:0;color:var(--soft);margin-left:10px}
+/* wordmark: JAY ALVARREZ wide and heavy, CREATOR LAB spread underneath to the same width */
+.brand{display:inline-grid;gap:5px;line-height:1;font:900 22px/1 var(--font);font-stretch:125%;letter-spacing:.1em;color:var(--ink)}
+.brand span{font-weight:700;font-size:9.5px;letter-spacing:1.48em;margin-right:-1.48em;color:var(--sand);text-transform:uppercase}
+@media (max-width:900px){.brand{font-size:18px}.brand span{font-size:8px;letter-spacing:1.42em;margin-right:-1.42em}}
+footer{align-items:center}
+footer .brand{color:var(--soft)}
+footer .copy{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 nav .links{display:flex;gap:34px;align-items:center}
 nav .links a.l{font-size:15px;color:var(--soft);transition:color .2s}
 nav .links a.l:hover{color:var(--ink)}
@@ -433,7 +438,7 @@ footer .soc{display:flex;gap:24px}
 </main>
 
 <footer>
-  <span>© 2026 Jay Alvarrez Creator Lab</span>
+  <span class="copy"><a href="#top" class="brand">JAY ALVARREZ<span>Creator Lab</span></a><span>© 2026</span></span>
   <span class="soc"><a href="https://www.instagram.com/jayalvarrez/" target="_blank" rel="noopener">@jayalvarrez</a></span>
 </footer>
 
