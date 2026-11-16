@@ -175,6 +175,13 @@ nav .btn{font-size:12px;padding:12px 18px;display:inline-block;width:auto}
 .gets.bonus li{color:var(--soft);font-weight:600}
 .gets.bonus li::before{content:"✦";width:22px;height:auto;background:none;transform:none;color:var(--sand);font-size:.8em;line-height:1}
 .gets.bonus b{color:var(--sand);text-transform:uppercase;font-stretch:125%;font-weight:800;margin-right:10px}
+/* on scroll: each item slides in from the right, then its dash draws in (the bonus star spins in) */
+.gets li.rv{transform:translateX(40px)}
+.gets li.rv.in{transform:none}
+.gets li::before{scale:0 1;transform-origin:left;transition:scale .7s var(--ease);transition-delay:calc(var(--i,0) * 90ms + 350ms)}
+.gets.bonus li::before{scale:0;rotate:-180deg;transform-origin:center;transition:scale .8s var(--ease),rotate .8s var(--ease);transition-delay:calc(var(--i,0) * 90ms + 350ms)}
+.gets li.in::before{scale:1;rotate:0deg}
+@media (prefers-reduced-motion:reduce){.gets li::before{scale:1;rotate:0deg;transition:none}}
 .value .after{margin-top:0;display:flex;gap:28px;align-items:center;flex-wrap:wrap}
 
 /* path: title left, four steps right */
