@@ -185,11 +185,23 @@ nav .btn{font-size:12px;padding:12px 18px;display:inline-block;width:auto}
 .value .after{margin-top:0;display:flex;gap:28px;align-items:center;flex-wrap:wrap}
 
 /* path: title left, four steps right */
-.steps{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,4.5vw,64px) clamp(28px,3vw,48px);padding-top:10px}
-@media (max-width:560px){.steps{grid-template-columns:1fr}}
-.steps .when{display:block;color:var(--sand);font-stretch:125%;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:13px;margin-bottom:12px}
-.steps h3{font-stretch:100%;font-weight:700;letter-spacing:-.01em;font-size:clamp(26px,2.4vw,36px);line-height:1.05;hyphens:none}
-.steps .horizon h3,.steps .horizon .when{color:var(--mute)}
+/* path: one vertical line that fills as you scroll, each step lights up when the line reaches it */
+.steps{--pl:clamp(48px,5vw,68px);--top:16px;--len:0px;--fill:0px;list-style:none;position:relative;display:grid;gap:clamp(40px,4.5vw,60px);padding:0 0 0 var(--pl)}
+.steps::before,.steps::after{content:"";position:absolute;left:7px;top:var(--top);width:2px;border-radius:2px}
+.steps::before{height:var(--len);background:rgba(241,236,228,.12)}
+.steps::after{height:min(var(--fill),var(--len));background:var(--sand)}
+.steps li{position:relative}
+.steps li::before{content:"";position:absolute;left:calc(-1 * var(--pl));top:8px;width:16px;height:16px;border-radius:50%;background:#2e2a26;transition:background .45s,box-shadow .6s}
+.steps li.on::before{background:var(--sand)}
+.steps .when{display:block;color:var(--sand);font-stretch:125%;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:13px;margin-bottom:12px;opacity:.4;transition:opacity .45s}
+.steps h3{font-stretch:100%;font-weight:700;letter-spacing:-.01em;font-size:clamp(26px,2.4vw,36px);line-height:1.05;hyphens:none;color:#5c5750;transition:color .45s}
+.steps li.on .when{opacity:1}
+.steps li.on h3{color:var(--ink)}
+/* the goal: bigger, wide caps, sand once reached */
+.steps li.goal::before{left:calc(-1 * var(--pl) - 4px);top:5px;width:24px;height:24px}
+.steps li.goal.on::before{box-shadow:0 0 0 9px rgba(226,207,182,.16)}
+.steps li.goal h3{font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:clamp(30px,3.4vw,52px);line-height:1}
+.steps li.goal.on h3{color:var(--sand)}
 .disclaim{margin-top:28px;color:var(--mute);font-size:16px;max-width:34ch}
 
 .routes{display:grid;grid-template-columns:var(--cols);gap:var(--gap);margin-top:clamp(80px,10vw,150px)}
@@ -297,7 +309,7 @@ footer .soc{display:flex;gap:24px}
         <li class="rv"><span class="when">First</span><h3>Your first adventure, filmed like a pro</h3></li>
         <li class="rv" style="--i:1"><span class="when">Then</span><h3>Your first brand deal</h3></li>
         <li class="rv" style="--i:2"><span class="when">Next</span><h3>Adventures that pay for themselves</h3></li>
-        <li class="rv" style="--i:3"><span class="when">The goal</span><h3>A full&#8209;time living from what you film</h3></li>
+        <li class="rv goal" style="--i:3"><span class="when">The goal</span><h3>A full&#8209;time living from what you film</h3></li>
       </ol>
     </div>
     <div class="routes">
@@ -455,6 +467,15 @@ addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40),{passive:
 // a [data-group] reveals all its items together, in order (their --i sets the stagger)
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const t=e.target;(t.hasAttribute('data-group')?t.querySelectorAll('.rv'):[t]).forEach(el=>el.classList.add('in'));io.unobserve(t)}),{threshold:.12});
 document.querySelectorAll('[data-group]').forEach(g=>io.observe(g));
+// path line: fill follows the scroll, a step lights up once the line reaches its dot
+const steps=document.querySelector('.steps');
+if(steps){const lis=[...steps.children],still=matchMedia('(prefers-reduced-motion:reduce)').matches;let tick=0;
+const mid=li=>li.offsetTop+(li.classList.contains('goal')?17:16); // dot centre, matches the CSS
+const draw=()=>{tick=0;const top=mid(lis[0]),len=mid(lis[lis.length-1])-top;
+const fill=still?len:Math.max(0,Math.min(len,innerHeight*.62-(steps.getBoundingClientRect().top+top)));
+steps.style.setProperty('--top',top+'px');steps.style.setProperty('--len',len+'px');steps.style.setProperty('--fill',fill+'px');
+lis.forEach(li=>li.classList.toggle('on',mid(li)-top<=fill+1))};
+const ask=()=>{if(!tick)tick=requestAnimationFrame(draw)};addEventListener('scroll',ask,{passive:true});addEventListener('resize',ask);draw()}
 // buttons: one light streak the first time each comes into view
 const bio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('shine'),500);bio.unobserve(e.target)}}),{threshold:1});
 document.querySelectorAll('.btn').forEach(b=>bio.observe(b));
