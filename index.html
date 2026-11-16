@@ -125,7 +125,7 @@ nav .btn{font-size:12px;padding:8px 0 8px}
 .timeline{list-style:none;margin-top:clamp(48px,6vw,72px);display:grid;gap:30px}
 .timeline li{display:grid;grid-template-columns:clamp(80px,9vw,120px) 1fr;gap:20px;align-items:baseline}
 .timeline b{font-stretch:125%;font-weight:800;font-size:clamp(22px,2vw,30px);line-height:1;color:var(--sand);font-variant-numeric:tabular-nums}
-.timeline span{color:var(--soft);max-width:44ch}
+.timeline li > span{color:var(--soft);max-width:44ch}
 @media (max-width:900px){.jay .photo{position:relative;top:0;aspect-ratio:1}}
 
 /* full-bleed photo band with a single line */
@@ -308,7 +308,8 @@ footer .soc{display:flex;gap:24px}
         <li class="rv"><b>2016</b><span>His travel films start going around the world. The first brands call.</span></li>
         <li class="rv"><b>2019</b><span>He moves into extreme sport: skydiving, balloon jumps, surf behind helicopters.</span></li>
         <li class="rv"><b>2022</b><span>Big-concept shoots he writes and directs himself, like skateboarding above the clouds.</span></li>
-        <li class="rv"><b>2024</b><span>Starts Omertá with Alex Smith.</span></li>
+        <li class="rv"><b><span class="ph-text">[year]</span></b><span>His content opens the door to business: Sunkissed, real estate and <span class="ph-text">[other companies]</span>.</span></li>
+        <li class="rv"><b>2024</b><span>Starts Omertá.</span></li>
         <li class="rv"><b>2026</b><span>Opens the Creator Lab.</span></li>
       </ol>
     </div>
