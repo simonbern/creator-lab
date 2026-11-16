@@ -151,12 +151,17 @@ nav .btn{font-size:12px;padding:8px 0 8px}
 
 /* value */
 .value{align-items:start}
-.value table{width:100%;border-collapse:collapse;font-size:17px;font-variant-numeric:tabular-nums}
-.value td{padding:13px 0;color:var(--soft);vertical-align:top}
-.value td:last-child{text-align:right;padding-left:24px;white-space:nowrap;font-weight:600;color:var(--ink)}
-.value td b{color:var(--sand);font-weight:600}
-.value tr.total td{padding-top:36px;font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:clamp(22px,2.4vw,34px);line-height:1;color:var(--ink)}
-.value .after{margin-top:40px;display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.value > div:first-child{display:contents}
+.value h2{grid-column:1;grid-row:1}
+.value .after{grid-column:1;grid-row:2;align-self:start}
+.value .list{grid-column:2;grid-row:1/span 2}
+@media (max-width:900px){.value h2,.value .after,.value .list{grid-column:1;grid-row:auto}.value .after{order:3;margin-top:8px}}
+.gets{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:22px 40px;font-size:18px;line-height:1.4;color:var(--ink)}
+.gets.bonus{margin-top:clamp(40px,5vw,64px)}
+.gets b{display:block;margin-bottom:8px;font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:13px;letter-spacing:.06em;color:var(--sand)}
+.gets.bonus li{color:var(--soft)}
+@media (max-width:600px){.gets{grid-template-columns:1fr}}
+.value .after{margin-top:0;display:flex;gap:28px;align-items:center;flex-wrap:wrap}
 
 /* path: title left, four steps right */
 .steps{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,4.5vw,64px) clamp(28px,3vw,48px);padding-top:10px}
@@ -337,19 +342,22 @@ footer .soc{display:flex;gap:24px}
       <h2 class="rv">Everything you get.</h2>
       <div class="after rv" style="--i:1"><a class="btn solid" href="apply.html">Apply to the Lab</a><span style="color:var(--mute)">Start any week you want.</span></div>
     </div>
-    <table class="rv" style="--i:1">
-      <tr><td>Weekly live sessions with Jay and the coaches, with replays</td><td>Included</td></tr>
-      <tr><td>Personal video feedback, every week</td><td>Included</td></tr>
-      <tr><td>Small groups per coach</td><td>Included</td></tr>
-      <tr><td>The Omertá creator community</td><td>Included</td></tr>
-      <tr><td>Pitch Day</td><td>Included</td></tr>
-      <tr><td>The Concept Engine</td><td>$2,000</td></tr>
-      <tr><td>The Method: Jay's recorded modules</td><td>$1,500</td></tr>
-      <tr><td>Media kit and outreach templates</td><td>$700</td></tr>
-      <tr><td><b>Bonus 1:</b> behind the scenes of one of Jay's shoots, start to finish</td><td>$750</td></tr>
-      <tr><td><b>Bonus 2:</b> a brand deals workshop on how Jay negotiates with his partners</td><td>$750</td></tr>
-      <tr class="total"><td>Total value</td><td>Over $5,700</td></tr>
-    </table>
+    <div class="list rv" style="--i:1">
+      <ul class="gets">
+        <li>Weekly live sessions with Jay and the coaches, with replays</li>
+        <li>Personal video feedback, every week</li>
+        <li>Small groups per coach</li>
+        <li>The Omertá creator community</li>
+        <li>Pitch Day</li>
+        <li>The Concept Engine</li>
+        <li>The Method: Jay's recorded modules</li>
+        <li>Media kit and outreach templates</li>
+      </ul>
+      <ul class="gets bonus">
+        <li><b>Bonus 1</b>Behind the scenes of one of Jay's shoots, start to finish</li>
+        <li><b>Bonus 2</b>A brand deals workshop on how Jay negotiates with his partners</li>
+      </ul>
+    </div>
   </div>
 </section>
 
