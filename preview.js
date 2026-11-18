@@ -9,11 +9,12 @@
   const here = location.pathname.split('/').pop() || 'index.html';
   const css = document.createElement('style');
   css.textContent = `
-    #pv{position:fixed;top:0;left:0;right:0;height:40px;z-index:9999;display:flex;align-items:center;gap:4px;padding:0 8px;background:#1a56db;color:#fff;font:13px/1 Arial,Helvetica,sans-serif;overflow-x:auto;white-space:nowrap}
-    #pv b{padding:0 8px;color:#fff}
-    #pv a{color:#fff;padding:8px 10px;text-decoration:none;border-radius:3px}
-    #pv a:hover{background:rgba(255,255,255,.15)}
-    #pv a.on{background:#fff;color:#1a56db}
+    #pv{position:fixed;top:0;left:0;right:0;height:40px;z-index:9999;display:flex;align-items:center;gap:4px;padding:0 8px;background:#000;color:#8d867c;font:600 11px/1 ui-monospace,Menlo,Consolas,monospace;letter-spacing:.08em;text-transform:uppercase;overflow-x:auto;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.5)}
+    #pv{scrollbar-width:none}#pv::-webkit-scrollbar{display:none}
+    #pv b{padding:6px 9px;margin-right:6px;border-radius:2px;background:#e2cfb6;color:#14110e;font-weight:800}
+    #pv a{color:#8d867c;padding:8px 10px;text-decoration:none;border-radius:2px;transition:color .2s,background .2s}
+    #pv a:hover{color:#f1ece4}
+    #pv a.on{background:#1f1c19;color:#f1ece4}
     body{padding-top:40px!important}
     body>nav{top:40px!important}`;
   const bar = document.createElement('div');
